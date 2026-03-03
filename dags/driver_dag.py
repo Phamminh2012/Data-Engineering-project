@@ -1,19 +1,6 @@
 # Import Airflow here
 import datetime
 
-<<<<<<< HEAD
-from airflow import DAG
-from airflow.operators import PythonOperator
-from airflow.operators import EmptyOperator
-
-# Define DAG
-
-with DAG(
-    dag_id="Driver DAG",
-    start_date=datetime.datetime(2010, 1, 1),
-) as dag:
-    start = EmptyOperator(task_id="to_be_filled")
-=======
 # Define DAG
 from datetime import datetime
 from airflow import DAG
@@ -58,4 +45,3 @@ with DAG(
     # The '>>' operator tells Airflow the order of execution. 
     # Here, hello_task must finish successfully before world_task is allowed to start.
   
->>>>>>> 2bfaf91b0c2171d019f232f0a28a31c8a9c296ae
