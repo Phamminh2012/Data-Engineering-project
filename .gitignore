@@ -1,5 +1,5 @@
 # Secrets
-key.env
+.env
 
 # Telegram session
 session.session

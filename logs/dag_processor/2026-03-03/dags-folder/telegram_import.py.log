@@ -1,0 +1,72 @@
+{"timestamp":"2026-03-03T14:17:40.494738Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/telegram_import.py","logger":"airflow.models.dagbag.BundleDagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-03-03T14:17:40.611387Z","level":"info","event":"libssl detected, it will be used for encryption","logger":"telethon.crypto.aes","filename":"aes.py","lineno":23}
+{"timestamp":"2026-03-03T14:18:10.789201Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/telegram_import.py","logger":"airflow.models.dagbag.BundleDagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-03-03T14:18:10.965388Z","level":"info","event":"libssl detected, it will be used for encryption","logger":"telethon.crypto.aes","filename":"aes.py","lineno":23}
+{"timestamp":"2026-03-03T14:18:41.226392Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/telegram_import.py","logger":"airflow.models.dagbag.BundleDagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-03-03T14:18:41.419056Z","level":"info","event":"libssl detected, it will be used for encryption","logger":"telethon.crypto.aes","filename":"aes.py","lineno":23}
+{"timestamp":"2026-03-03T14:19:11.983075Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/telegram_import.py","logger":"airflow.models.dagbag.BundleDagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-03-03T14:19:12.196010Z","level":"info","event":"libssl detected, it will be used for encryption","logger":"telethon.crypto.aes","filename":"aes.py","lineno":23}
+{"timestamp":"2026-03-03T14:19:42.712490Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/telegram_import.py","logger":"airflow.models.dagbag.BundleDagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-03-03T14:19:42.890575Z","level":"info","event":"libssl detected, it will be used for encryption","logger":"telethon.crypto.aes","filename":"aes.py","lineno":23}
+{"timestamp":"2026-03-03T14:20:13.142309Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/telegram_import.py","logger":"airflow.models.dagbag.BundleDagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-03-03T14:20:13.355032Z","level":"info","event":"libssl detected, it will be used for encryption","logger":"telethon.crypto.aes","filename":"aes.py","lineno":23}
+{"timestamp":"2026-03-03T14:20:43.892568Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/telegram_import.py","logger":"airflow.models.dagbag.BundleDagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-03-03T14:20:43.966655Z","level":"info","event":"libssl detected, it will be used for encryption","logger":"telethon.crypto.aes","filename":"aes.py","lineno":23}
+{"timestamp":"2026-03-03T14:21:14.411764Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/telegram_import.py","logger":"airflow.models.dagbag.BundleDagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-03-03T14:21:14.593688Z","level":"info","event":"libssl detected, it will be used for encryption","logger":"telethon.crypto.aes","filename":"aes.py","lineno":23}
+{"timestamp":"2026-03-03T14:21:45.119951Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/telegram_import.py","logger":"airflow.models.dagbag.BundleDagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-03-03T14:21:45.355463Z","level":"info","event":"libssl detected, it will be used for encryption","logger":"telethon.crypto.aes","filename":"aes.py","lineno":23}
+{"timestamp":"2026-03-03T14:22:15.950326Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/telegram_import.py","logger":"airflow.models.dagbag.BundleDagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-03-03T14:22:16.106794Z","level":"info","event":"libssl detected, it will be used for encryption","logger":"telethon.crypto.aes","filename":"aes.py","lineno":23}
+{"timestamp":"2026-03-03T14:22:46.186018Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/telegram_import.py","logger":"airflow.models.dagbag.BundleDagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-03-03T14:22:46.307744Z","level":"info","event":"libssl detected, it will be used for encryption","logger":"telethon.crypto.aes","filename":"aes.py","lineno":23}
+{"timestamp":"2026-03-03T14:23:16.434771Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/telegram_import.py","logger":"airflow.models.dagbag.BundleDagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-03-03T14:23:16.585085Z","level":"info","event":"libssl detected, it will be used for encryption","logger":"telethon.crypto.aes","filename":"aes.py","lineno":23}
+{"timestamp":"2026-03-03T14:23:46.842461Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/telegram_import.py","logger":"airflow.models.dagbag.BundleDagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-03-03T14:23:46.910537Z","level":"info","event":"libssl detected, it will be used for encryption","logger":"telethon.crypto.aes","filename":"aes.py","lineno":23}
+{"timestamp":"2026-03-03T14:24:17.089228Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/telegram_import.py","logger":"airflow.models.dagbag.BundleDagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-03-03T14:24:17.171147Z","level":"info","event":"libssl detected, it will be used for encryption","logger":"telethon.crypto.aes","filename":"aes.py","lineno":23}
+{"timestamp":"2026-03-03T14:24:47.366275Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/telegram_import.py","logger":"airflow.models.dagbag.BundleDagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-03-03T14:24:47.493259Z","level":"info","event":"libssl detected, it will be used for encryption","logger":"telethon.crypto.aes","filename":"aes.py","lineno":23}
+{"timestamp":"2026-03-03T14:25:17.612889Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/telegram_import.py","logger":"airflow.models.dagbag.BundleDagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-03-03T14:25:17.790494Z","level":"info","event":"libssl detected, it will be used for encryption","logger":"telethon.crypto.aes","filename":"aes.py","lineno":23}
+{"timestamp":"2026-03-03T14:25:47.888512Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/telegram_import.py","logger":"airflow.models.dagbag.BundleDagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-03-03T14:25:48.031382Z","level":"info","event":"libssl detected, it will be used for encryption","logger":"telethon.crypto.aes","filename":"aes.py","lineno":23}
+{"timestamp":"2026-03-03T14:26:18.243798Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/telegram_import.py","logger":"airflow.models.dagbag.BundleDagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-03-03T14:26:18.389980Z","level":"info","event":"libssl detected, it will be used for encryption","logger":"telethon.crypto.aes","filename":"aes.py","lineno":23}
+{"timestamp":"2026-03-03T14:26:48.720702Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/telegram_import.py","logger":"airflow.models.dagbag.BundleDagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-03-03T14:26:48.842026Z","level":"info","event":"libssl detected, it will be used for encryption","logger":"telethon.crypto.aes","filename":"aes.py","lineno":23}
+{"timestamp":"2026-03-03T14:27:19.263224Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/telegram_import.py","logger":"airflow.models.dagbag.BundleDagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-03-03T14:27:19.345832Z","level":"info","event":"libssl detected, it will be used for encryption","logger":"telethon.crypto.aes","filename":"aes.py","lineno":23}
+{"timestamp":"2026-03-03T14:27:49.889092Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/telegram_import.py","logger":"airflow.models.dagbag.BundleDagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-03-03T14:27:50.079165Z","level":"info","event":"libssl detected, it will be used for encryption","logger":"telethon.crypto.aes","filename":"aes.py","lineno":23}
+{"timestamp":"2026-03-03T14:28:20.435537Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/telegram_import.py","logger":"airflow.models.dagbag.BundleDagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-03-03T14:28:20.618674Z","level":"info","event":"libssl detected, it will be used for encryption","logger":"telethon.crypto.aes","filename":"aes.py","lineno":23}
+{"timestamp":"2026-03-03T14:28:50.941540Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/telegram_import.py","logger":"airflow.models.dagbag.BundleDagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-03-03T14:28:51.126914Z","level":"info","event":"libssl detected, it will be used for encryption","logger":"telethon.crypto.aes","filename":"aes.py","lineno":23}
+{"timestamp":"2026-03-03T14:29:21.653148Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/telegram_import.py","logger":"airflow.models.dagbag.BundleDagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-03-03T14:29:21.863869Z","level":"info","event":"libssl detected, it will be used for encryption","logger":"telethon.crypto.aes","filename":"aes.py","lineno":23}
+{"timestamp":"2026-03-03T14:29:52.704715Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/telegram_import.py","logger":"airflow.models.dagbag.BundleDagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-03-03T14:29:52.991554Z","level":"info","event":"libssl detected, it will be used for encryption","logger":"telethon.crypto.aes","filename":"aes.py","lineno":23}
+{"timestamp":"2026-03-03T14:30:23.868122Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/telegram_import.py","logger":"airflow.models.dagbag.BundleDagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-03-03T14:30:23.962501Z","level":"info","event":"libssl detected, it will be used for encryption","logger":"telethon.crypto.aes","filename":"aes.py","lineno":23}
+{"timestamp":"2026-03-03T14:30:54.521427Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/telegram_import.py","logger":"airflow.models.dagbag.BundleDagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-03-03T14:30:54.721449Z","level":"info","event":"libssl detected, it will be used for encryption","logger":"telethon.crypto.aes","filename":"aes.py","lineno":23}
+{"timestamp":"2026-03-03T14:31:25.331884Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/telegram_import.py","logger":"airflow.models.dagbag.BundleDagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-03-03T14:31:25.636644Z","level":"info","event":"libssl detected, it will be used for encryption","logger":"telethon.crypto.aes","filename":"aes.py","lineno":23}
+{"timestamp":"2026-03-03T14:31:56.293483Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/telegram_import.py","logger":"airflow.models.dagbag.BundleDagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-03-03T14:31:56.510694Z","level":"info","event":"libssl detected, it will be used for encryption","logger":"telethon.crypto.aes","filename":"aes.py","lineno":23}
+{"timestamp":"2026-03-03T14:32:26.997380Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/telegram_import.py","logger":"airflow.models.dagbag.BundleDagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-03-03T14:32:27.152268Z","level":"info","event":"libssl detected, it will be used for encryption","logger":"telethon.crypto.aes","filename":"aes.py","lineno":23}
+{"timestamp":"2026-03-03T14:32:57.534388Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/telegram_import.py","logger":"airflow.models.dagbag.BundleDagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-03-03T14:32:57.817777Z","level":"info","event":"libssl detected, it will be used for encryption","logger":"telethon.crypto.aes","filename":"aes.py","lineno":23}
+{"timestamp":"2026-03-03T14:33:28.509757Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/telegram_import.py","logger":"airflow.models.dagbag.BundleDagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-03-03T14:33:28.758452Z","level":"info","event":"libssl detected, it will be used for encryption","logger":"telethon.crypto.aes","filename":"aes.py","lineno":23}
+{"timestamp":"2026-03-03T14:33:59.388955Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/telegram_import.py","logger":"airflow.models.dagbag.BundleDagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-03-03T14:33:59.511856Z","level":"info","event":"libssl detected, it will be used for encryption","logger":"telethon.crypto.aes","filename":"aes.py","lineno":23}
+{"timestamp":"2026-03-03T14:34:30.148107Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/telegram_import.py","logger":"airflow.models.dagbag.BundleDagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-03-03T14:34:30.238421Z","level":"info","event":"libssl detected, it will be used for encryption","logger":"telethon.crypto.aes","filename":"aes.py","lineno":23}
+{"timestamp":"2026-03-03T14:35:00.354110Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/telegram_import.py","logger":"airflow.models.dagbag.BundleDagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-03-03T14:35:00.547063Z","level":"info","event":"libssl detected, it will be used for encryption","logger":"telethon.crypto.aes","filename":"aes.py","lineno":23}
+{"timestamp":"2026-03-03T14:35:31.111406Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/telegram_import.py","logger":"airflow.models.dagbag.BundleDagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-03-03T14:35:31.357990Z","level":"info","event":"libssl detected, it will be used for encryption","logger":"telethon.crypto.aes","filename":"aes.py","lineno":23}
