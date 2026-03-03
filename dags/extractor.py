@@ -1,18 +1,19 @@
 from airflow.sdk import task, dag
 from datetime import datetime
-from publicapi_import import get_from_job_portal  as data_1
-from rapidapi_import import fetch_jsearch_jobs as data_2
+from publicapi_import import get_from_job_portal
+from rapidapi_import import fetch_jsearch_jobs
 
 @dag("extractor", schedule=None, start_date=datetime(2026, 1, 1), catchup=False)
 
 def extractor():
     @task
     def get_rapid_data():
-        return data_2()
+        return fetch_jsearch_jobs()
     
     @task
     def get_public_data():
-        return data_1()
+        return get_from_job_portal()
+    
     get_rapid_data()
     get_public_data()
 
