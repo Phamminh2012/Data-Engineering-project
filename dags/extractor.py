@@ -5,7 +5,7 @@ from rapidapi_import import fetch_jsearch_jobs
 from telegram_import import telegram_import
 from send_telegram import send_myself
 
-@dag("extractor", schedule=timedelta(minutes=10), start_date=datetime(2026, 1, 1), catchup=False)
+@dag("extractor", schedule=None, start_date=datetime(2026, 1, 1), catchup=False)
 
 def extractor():
     @task
