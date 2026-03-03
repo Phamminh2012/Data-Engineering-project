@@ -27,6 +27,7 @@ with DAG(
     
     tags=['tutorial_4'],
 ) as dag:
+    """
     get_rapid_data = PythonOperator(
         task_id='get_rapid_data',
         python_callable=data_2,
@@ -36,12 +37,13 @@ with DAG(
         task_id='get_public_data',
         python_callable=data_1,
     )
-
+"""
     get_telethon_data = PythonOperator(
         task_id='get_telethon_data',
         python_callable=data_3
     )
+    
     # 4. Set dependencies
     # The '>>' operator tells Airflow the order of execution. 
     # Here, hello_task must finish successfully before world_task is allowed to start.
-    get_public_data >> get_telethon_data
+  
