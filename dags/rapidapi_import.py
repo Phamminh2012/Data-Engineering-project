@@ -12,7 +12,7 @@ load_dotenv("key.env")
 # Fetch from JSearch API hosted on RapidAPI
 JSEARCH_URL = "https://jsearch.p.rapidapi.com/search"
 JSEARCH_HEADERS = {
-    "X-RapidAPI-Key": os.getenv("JSEARCH_API_KEY"),
+    "X-RapidAPI-Key": "8ed28f0641msh48b1de0a6a1e831p124b05jsnba51e1e53b52",
     "X-RapidAPI-Host": "jsearch.p.rapidapi.com"
 }
 
