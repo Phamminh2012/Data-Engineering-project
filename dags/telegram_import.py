@@ -8,7 +8,7 @@ from datetime import timedelta, datetime
 from telethon import TelegramClient
 
 #get apip key
-load_dotenv("key.env") 
+load_dotenv(".env") 
 
 # load Telegram API credentials
 TELEGRAM_API_ID   = int(os.getenv("TELEGRAM_API_ID"))
