@@ -9,6 +9,7 @@ from datetime import timedelta, datetime
 #get apip key
 load_dotenv("key.env") 
 
+# Fetch from JSearch API hosted on RapidAPI
 JSEARCH_URL = "https://jsearch.p.rapidapi.com/search"
 JSEARCH_HEADERS = {
     "X-RapidAPI-Key": os.getenv("JSEARCH_API_KEY"),
