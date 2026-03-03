@@ -14,7 +14,12 @@ def extractor():
     def get_public_data():
         return get_from_job_portal()
     
-    get_rapid_data()
-    get_public_data()
+    @task
+    def do_something(a_param, another_param):
+        return "Yes."
+    
+    a = get_rapid_data()
+    b = get_public_data()
+    do_something(a, b) # The pythonic way is SO MUCH better!
 
 extractor()
