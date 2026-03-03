@@ -2,6 +2,7 @@ from airflow.sdk import task, dag
 from datetime import datetime
 from publicapi_import import get_from_job_portal
 from rapidapi_import import fetch_jsearch_jobs
+from telegram_import import telegram_import
 
 @dag("extractor", schedule=None, start_date=datetime(2026, 1, 1), catchup=False)
 
@@ -15,11 +16,12 @@ def extractor():
         return get_from_job_portal()
     
     @task
-    def do_something(a_param, another_param):
-        return "Yes."
+    def get_telegram_data():
+        return telegram_import()
     
-    a = get_rapid_data()
-    b = get_public_data()
-    do_something(a, b) # The pythonic way is SO MUCH better!
+    
+    get_rapid_data()
+    get_public_data()
+    get_telegram_data()
 
 extractor()
