@@ -22,7 +22,7 @@ def extractor():
     
     @task
     def upload_to_gcs(file_path, bucket_name, dest_blob):
-        gcs_hook = GCSHook(connection_id="google_cloud_default")
+        gcs_hook = GCSHook(connection_id="google_cloud_default") # Please get your connection ID!
         gcs_hook.upload(bucket_name=bucket_name, object_name=dest_blob, filename=file_path)
 
     a = get_rapid_data()
