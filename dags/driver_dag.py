@@ -5,8 +5,8 @@ from datetime import datetime
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 from publicapi_import import get_from_job_portal  as data_1
-from rapidapi_import import fetch_jsearch_jobs as data_2
-
+ #from rapidapi_import import fetch_jsearch_jobs as data_2
+from telegram_import import telegram_import as data_3
 
 with DAG(
     dag_id='Testing_airflow_first_time',
@@ -26,19 +26,22 @@ with DAG(
     catchup=False,
     
     tags=['tutorial_4'],
-) as dag:
-
+)as dag:
+    '''
     get_rapid_data = PythonOperator(
         task_id='get_rapid_data',
         python_callable=data_2,
     )
-
+   '''
     get_public_data = PythonOperator(
         task_id='get_public_data',
         python_callable=data_1,
     )
 
-   
+    get_telegram_data = PythonOperator(
+       task_id='get_telegram_data',
+       python_callable=data_3
+   )
     
     # 4. Set dependencies
     # The '>>' operator tells Airflow the order of execution. 
