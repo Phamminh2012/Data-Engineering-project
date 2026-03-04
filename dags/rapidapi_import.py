@@ -21,7 +21,7 @@ def fetch_jsearch_jobs(
     page: int = 5,
     num_pages: int = 5,
     language: str = "en",
-    output_path: str = "jsearch_output.json",
+    output_path: str = "/opt/airflow/data/raw/job_search.json",
 ) -> list[dict]:
   
     params = {
