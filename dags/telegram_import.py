@@ -11,6 +11,7 @@ string_session = "1BVtsOJMBu1hB_wTzxSCqPBxu5FHfr_cRWCTxOMxXbfiG0QP-uBI9NBS52tcTW
 offset_date = dt.datetime.now() - dt.timedelta(hours=24)
 def telegram_import():
     messages = []
+    f_path = f"/opt/airflow/data/telegram_search-{dt.datetime.now()}.json"
     with TelegramClient(StringSession(string_session), api_id, api_hash) as client:
         channels = ["t.me/JobHitchpt", 
                     "t.me/SearchForJob", 
@@ -31,4 +32,5 @@ def telegram_import():
                     "source_channel": msg_source.strip("t.me/"),
                     "source": "telegram" # To delcare accordingly
                 })
-    return messages
+    with open(f_path, 'w') as f:
+        json.dump(messages, f, indent = 4)

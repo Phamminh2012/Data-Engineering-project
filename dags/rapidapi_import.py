@@ -18,11 +18,11 @@ JSEARCH_HEADERS = {
 
 # fetch from rapidapi
 def fetch_jsearch_jobs(
-    query: str = "software engineer in Singapore",
+    query: str = "Software Engineering in Singapore",
     page: int = 5,
     num_pages: int = 5,
     language: str = "en",
-    output_path: str = "/opt/airflow/data/raw/job_search.json",
+    output_path: str = f"/opt/airflow/data/job_search-{datetime.now()}.json",
 ) -> list[dict]:
   
     params = {
