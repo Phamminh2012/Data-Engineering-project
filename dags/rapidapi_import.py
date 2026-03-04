@@ -22,7 +22,7 @@ def fetch_jsearch_jobs(
     page: int = 5,
     num_pages: int = 5,
     language: str = "en",
-    output_path: str = f"/opt/airflow/data/job_search-{datetime.now()}.json",
+    output_path: str = "/tmp/job_search.json",
 ) -> list[dict]:
   
     params = {
@@ -42,4 +42,4 @@ def fetch_jsearch_jobs(
         json.dump(data, f, ensure_ascii=False, indent=4, default=str)
     print(f"[JSearch] Saved to {output_path}")
 
-    return data
+    return output_path # NEVER EVER RETURN RAW DATA!

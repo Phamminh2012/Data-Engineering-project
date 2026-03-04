@@ -1,4 +1,5 @@
 from airflow.sdk import task, dag
+from airflow.providers.google.cloud.hooks.gcs import GCSHook
 from datetime import datetime, timedelta
 from publicapi_import import get_from_job_portal
 from rapidapi_import import fetch_jsearch_jobs
@@ -18,9 +19,17 @@ def extractor():
     @task
     def get_telegram_data():
         return telegram_import()
-        
+    
+    @task
+    def upload_to_gcs(file_path, bucket_name, dest_blob):
+        gcs_hook = GCSHook()
+        gcs_hook.upload(bucket_name=bucket_name, object_name=dest_blob, filename=file_path)
+
     a = get_rapid_data()
     b = get_public_data()
     c = get_telegram_data()
+    rapid_raw = upload_to_gcs(a, "job-data-bucket-raw", "raw_rapidapi_data.json")
+    public_raw = upload_to_gcs(b, "job-data-bucket-raw", "raw_publicapi_data.json")
+    telegram_raw = upload_to_gcs(c, "job-data-bucket-raw", "raw_telegram_data.json")
 
 extractor()
