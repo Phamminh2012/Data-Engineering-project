@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 from telethon.sync import TelegramClient
 from telethon.sessions import StringSession
 import datetime as dt
+import json
 
 # PLEASE KEEP THIS ENVIRONMENT VARIABLE SECRET!!!
 api_id = 20323297

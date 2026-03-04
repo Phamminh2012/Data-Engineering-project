@@ -5,8 +5,9 @@ import json
 import requests
 from dotenv import load_dotenv
 from datetime import timedelta, datetime
+from airflow.sdk import Variable
 
-#get apip key
+#get apip key (To be depreciated in favor of Airflow Variables)
 load_dotenv("key.env") 
 
 # Fetch from JSearch API hosted on RapidAPI

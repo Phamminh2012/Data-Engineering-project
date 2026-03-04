@@ -22,14 +22,14 @@ def extractor():
     
     @task
     def upload_to_gcs(file_path, bucket_name, dest_blob):
-        gcs_hook = GCSHook()
+        gcs_hook = GCSHook(connection_id="google_cloud_default")
         gcs_hook.upload(bucket_name=bucket_name, object_name=dest_blob, filename=file_path)
 
     a = get_rapid_data()
     b = get_public_data()
     c = get_telegram_data()
-    rapid_raw = upload_to_gcs(a, "job-data-bucket-raw", "raw_rapidapi_data.json")
-    public_raw = upload_to_gcs(b, "job-data-bucket-raw", "raw_publicapi_data.json")
-    telegram_raw = upload_to_gcs(c, "job-data-bucket-raw", "raw_telegram_data.json")
+    upload_to_gcs(a, "job-data-bucket-raw", "raw_rapidapi_data.json")
+    upload_to_gcs(b, "job-data-bucket-raw", "raw_publicapi_data.json")
+    upload_to_gcs(c, "job-data-bucket-raw", "raw_telegram_data.json")
 
 extractor()
