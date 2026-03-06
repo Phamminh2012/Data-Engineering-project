@@ -7,7 +7,7 @@ from airflow.operators.python import PythonOperator
 from publicapi_import import get_from_job_portal  as data_1
  #from rapidapi_import import fetch_jsearch_jobs as data_2
 from telegram_import import telegram_import as data_3
-
+from upload_data import upload as upload_data
 with DAG(
     dag_id='Testing_airflow_first_time',
     description='Testing call API',
@@ -43,7 +43,14 @@ with DAG(
        python_callable=data_3
    )
     
+    upload_data_gcs = PythonOperator(
+        task_id='upload_to_gcs',
+        python_callable=upload_data
+    )
+    
     # 4. Set dependencies
     # The '>>' operator tells Airflow the order of execution. 
     # Here, hello_task must finish successfully before world_task is allowed to start.
+    get_public_data >> upload_data_gcs
+    get_telegram_data >> upload_data_gcs
   

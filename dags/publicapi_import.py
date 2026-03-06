@@ -18,6 +18,6 @@ def get_from_job_portal():
     data = api_result.json()["results"]
     for entry in data:
         entry["description"] = "\n".join(entry["description"])
-    with open(f"/opt/airflow/data/raw/job-board-public-{datetime.now()}.json", "w", encoding="utf-8") as f:
+    with open(f"/opt/airflow/data/raw/job-board-public.json", "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=4, default=str)
     return data

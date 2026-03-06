@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 from datetime import timedelta, datetime
 
 #get apip key
-load_dotenv("key.env") 
+load_dotenv(".env") 
 
 JSEARCH_URL = "https://jsearch.p.rapidapi.com/search"
 JSEARCH_HEADERS = {
