@@ -17,7 +17,7 @@ JSEARCH_HEADERS = {
 
 # fetch from rapidapi
 def fetch_jsearch_jobs(
-    query: str = "Data engineer job in Singapore",
+    query: str = "IT job in Singapore",
     page: int = 5,
     num_pages: int = 5,
     language: str = "en",
