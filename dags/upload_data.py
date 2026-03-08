@@ -1,28 +1,24 @@
 from pymongo import MongoClient
-from pymongo.server_api import ServerApi
 import json
 import os
-from dotenv import load_dotenv
 
-load_dotenv()
-
-uri = os.getenv("URI")
+# Local MongoDB running on host machine
+uri = "mongodb://host.docker.internal:27017"
 
 def upload():
     client = MongoClient(
         uri,
-        server_api=ServerApi('1'),
         serverSelectionTimeoutMS=30000,
         connectTimeoutMS=30000,
         socketTimeoutMS=60000,
     )
 
     try:
-        client.admin.command('ping')
-        print("Connected to MongoDB!")
+        client.admin.command("ping")
+        print("Connected to local MongoDB!")
 
-        # Choose database
-        db = client["Data_engineer_project"]
+        # Database
+        db = client["Group_project"]
 
         # Collections
         collection_rapid = db["rapid_api"]
@@ -34,14 +30,20 @@ def upload():
         with open("/opt/airflow/data/raw/adzuna_jobs.json") as f:
             adzuna_data = json.load(f)
 
-        collection_rapid.insert_many(rapid_data)
-        collection_adzuna.insert_many(adzuna_data)
+        # insert
+        if rapid_data:
+            collection_rapid.insert_many(rapid_data)
+
+        if adzuna_data:
+            collection_adzuna.insert_many(adzuna_data)
+
         print("Data inserted successfully!")
 
     except Exception as e:
-        print(f"Error: {e}")
-        raise 
+        print("Error:", e)
+        raise Exception(e)
 
     finally:
         client.close()
+
 

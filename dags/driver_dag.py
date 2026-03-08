@@ -39,9 +39,9 @@ with DAG(
        python_callable=data_3
     )
    
-
+'''
    
-    '''
+    
     upload_mongo_atlas = PythonOperator(
         task_id='upload_to_mongo',
         python_callable=upload_data
@@ -50,6 +50,7 @@ with DAG(
     # 4. Set dependencies
     # The '>>' operator tells Airflow the order of execution. 
     # Here, hello_task must finish successfully before world_task is allowed to start.
+
    
 
   
