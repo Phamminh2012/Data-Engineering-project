@@ -9,7 +9,7 @@ ADZUNA_APP_ID = os.getenv("Adzuna_API_application_ID")
 ADZUNA_API_KEY = os.getenv("Adzuna_API_key")
 
 
-def adzuna_import():
+def adzuna_import(keywords):
     if not ADZUNA_APP_ID or not ADZUNA_API_KEY:
         raise ValueError("Missing Adzuna API credentials.")
 
@@ -21,7 +21,7 @@ def adzuna_import():
         "app_id": ADZUNA_APP_ID,
         "app_key": ADZUNA_API_KEY,
         "results_per_page": 20,
-        "what": "software developer and AI",
+        "what": keywords,
         "sort_by": "date",
     }
 
