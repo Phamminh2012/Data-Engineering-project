@@ -7,8 +7,8 @@ from dotenv import load_dotenv
 from datetime import timedelta, datetime
 from airflow.sdk import Variable
 
-#get apip key (To be depreciated in favor of Airflow Variables)
-load_dotenv("key.env") 
+#get apip key
+load_dotenv(".env") 
 
 # Fetch from JSearch API hosted on RapidAPI
 JSEARCH_URL = "https://jsearch.p.rapidapi.com/search"
@@ -19,7 +19,7 @@ JSEARCH_HEADERS = {
 
 # fetch from rapidapi
 def fetch_jsearch_jobs(
-    query: str = "Software Engineering in Singapore",
+    query: str = "IT job in Singapore",
     page: int = 5,
     num_pages: int = 5,
     language: str = "en",
