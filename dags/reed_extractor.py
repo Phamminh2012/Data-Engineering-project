@@ -18,10 +18,7 @@ def get_reed_listings(keywords, location = None, limit = None):
     RESULT = []
 
     results = session.get(f"{BASE_URL}/search", params=params)
-
-    if results.status_code != 200:
-        print(f"Error! {results.status_code}")
-        raise Exception("Failed to fetch data from Reed API")
+    session.raise_for_status()
     
     results = results.json()["results"]
 
