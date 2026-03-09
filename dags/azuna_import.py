@@ -34,8 +34,4 @@ def adzuna_import(keywords):
 
     jobs = data.get("results", [])
     
-
-    with open("/opt/airflow/data/raw/adzuna_jobs.json", "w", encoding="utf-8") as f:
-        json.dump(jobs, f, indent=4, ensure_ascii=False)
-
     return jobs
