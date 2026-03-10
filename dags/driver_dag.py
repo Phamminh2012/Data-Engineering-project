@@ -13,15 +13,15 @@ from upload_data import upload as upload_data
 
 
 with DAG(
-    dag_id='Testing_airflow_first_time',
-    description='Testing call API',
+    dag_id='JobSearchAndAnalysis',
+    description='IS3107 group project on job analytics',
     start_date=datetime(2026, 1, 1), # YYYY , MM, DD
     
     # --- SCHEDULE EXAMPLES ---
     # schedule='@daily',        # Preset: Runs once a day at midnight
     # schedule='@hourly',       # Preset: Runs at the beginning of every hour
     # schedule='0 12 * * *',    # Cron expression: Runs exactly at 12:00 PM every day
-    schedule=None,
+    schedule='@daily',
     
     # --- CATCHUP EXPLANATION ---
     # If catchup=True: Airflow looks at your start_date and automatically runs 
@@ -45,8 +45,8 @@ with DAG(
        task_id='get_mcf_data',
        python_callable=data_1,
        op_kwargs={
-        "keywords": "it job",
-        "limit": 5
+        "keywords": "software engineer",
+        "limit": 50
         }
     )
 

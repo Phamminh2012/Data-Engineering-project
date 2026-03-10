@@ -18,6 +18,9 @@ def mcf_scrape(keywords, limit = None):
     
     data = response.json()
     jobs = data.get("results", [])
+    for entry in jobs:
+        entry["_id"] = entry["uuid"]
+    
     with open("/opt/airflow/data/raw/mcf_data.json", "w", encoding="utf-8") as f:
         json.dump(jobs, f, indent=4, ensure_ascii=False)
 

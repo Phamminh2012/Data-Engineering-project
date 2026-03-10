@@ -20,8 +20,8 @@ def adzuna_import():
     params = {
         "app_id": ADZUNA_APP_ID,
         "app_key": ADZUNA_API_KEY,
-        "results_per_page": 20,
-        "what": "software developer and IT job",
+        "results_per_page": 25,
+        "what": "software developer",
         "sort_by": "date",
     }
 
@@ -33,6 +33,9 @@ def adzuna_import():
     print("COUNT RESULTS:", len(data.get("results", [])))
 
     jobs = data.get("results", [])
+
+    for entry in jobs:
+        entry["_id"] = entry["id"]
     
 
     with open("/opt/airflow/data/raw/adzuna_jobs.json", "w", encoding="utf-8") as f:
