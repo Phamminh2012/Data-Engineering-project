@@ -21,7 +21,7 @@ def adzuna_import():
         "app_id": ADZUNA_APP_ID,
         "app_key": ADZUNA_API_KEY,
         "results_per_page": 20,
-        "what": "software developer and AI",
+        "what": "software developer and IT job",
         "sort_by": "date",
     }
 

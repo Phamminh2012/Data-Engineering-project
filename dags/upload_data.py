@@ -23,6 +23,7 @@ def upload():
         # Collections
         collection_rapid = db["rapid_api"]
         collection_adzuna = db["adzuna_api"]
+        collection_mcf = db["mcf_scrape"]
 
         with open("/opt/airflow/data/raw/job_search.json") as f:
             rapid_data = json.load(f)
@@ -30,12 +31,18 @@ def upload():
         with open("/opt/airflow/data/raw/adzuna_jobs.json") as f:
             adzuna_data = json.load(f)
 
+        with open("/opt/airflow/data/raw/mcf_data.json") as f:
+            mcf_data = json.load(f)
+
         # insert
         if rapid_data:
             collection_rapid.insert_many(rapid_data)
 
         if adzuna_data:
             collection_adzuna.insert_many(adzuna_data)
+
+        if mcf_data:
+            collection_mcf.insert_many(mcf_data)
 
         print("Data inserted successfully!")
 
