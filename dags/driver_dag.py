@@ -45,7 +45,7 @@ with DAG(
        task_id='get_mcf_data',
        python_callable=data_1,
        op_kwargs={
-        "keywords": "data scientist",
+        "keywords": "it job",
         "limit": 5
         }
     )
