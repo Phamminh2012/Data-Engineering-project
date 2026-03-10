@@ -29,7 +29,7 @@ with DAG(
     # If catchup=False: It ignores the past and only runs from the current date onward.
     catchup=False,
     
-    tags=['tutorial_4'],
+    tags=['project'],
 )as dag:
     
     get_rapid_data = PythonOperator(
