@@ -3,7 +3,7 @@ import datetime
 from scraping import *
 from upload_data import upload
 
-@dag("job_scraper", schedule= "@daily", start_date=datetime.datetime(2026, 1, 1))
+@dag("job_scraper", schedule= None, start_date=datetime.datetime(2026, 1, 1))
 def the_driver():
 
     @task(task_id="MCF-Scrape")
