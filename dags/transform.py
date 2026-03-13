@@ -111,7 +111,7 @@ def transformJSearch(to_key):
                     }
                 }, 
                 'source': 'jsearch',
-                'title': 'job_title'
+                'title': '$job_title'
             }
         }, {
             '$project': {
