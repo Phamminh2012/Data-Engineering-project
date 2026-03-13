@@ -1,4 +1,5 @@
 from pymongo import MongoClient
+from pymongo.errors import BulkWriteError
 import json
 import os
 
@@ -25,9 +26,11 @@ def upload(db_name, col_name, f_path):
 
         with open(f_path) as f:
             data = json.load(f)
-        
-        if data:
-            collection.insert_many(data)
+        try:
+            if data:
+                collection.insert_many(data, ordered = False)
+        except BulkWriteError as bwe:
+            print("Apparently there were some duplicates...")
 
         print("Data inserted successfully!")
 

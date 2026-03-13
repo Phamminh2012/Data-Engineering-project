@@ -2,10 +2,11 @@ import os
 import json
 import requests
 from dotenv import load_dotenv
+from bs4 import BeautifulSoup
 
 load_dotenv()
 
-def adzuna_import():
+def adzuna_import(keywords):
     ADZUNA_APP_ID = os.getenv("Adzuna_API_application_ID")
     ADZUNA_API_KEY = os.getenv("Adzuna_API_key")
     if not ADZUNA_APP_ID or not ADZUNA_API_KEY:
@@ -19,7 +20,7 @@ def adzuna_import():
         "app_id": ADZUNA_APP_ID,
         "app_key": ADZUNA_API_KEY,
         "results_per_page": 25,
-        "what": "software developer",
+        "what": keywords,
         "sort_by": "date",
     }
 
@@ -40,21 +41,6 @@ def adzuna_import():
         json.dump(jobs, f, indent=4, ensure_ascii=False)
 
     return "/opt/airflow/adzuna_jobs.json"
-
-def fetch_gov_sg_listings():
-    URL = "https://raw.githubusercontent.com/opengovsg/careersgovsg-jobs-data/refs/heads/main/data/job-listings.json"
-    response = requests.get(URL)
-    
-    if response.status_code == 200:
-        response = response.json()
-        for entry in response:
-            entry["_id"] = entry["jobId"]
-        with open("/opt/airflow/gov_job_search.json", "w", encoding="utf-8") as f:
-            json.dump(response, f, indent = 4)
-            return "/opt/airflow/gov_job_search.json"
-    else:
-        print(f"Error! {response.status_code}")
-        return None
     
 def fetch_jsearch_jobs(
     query: str = "IT job in Singapore",
@@ -102,11 +88,12 @@ def mcf_scrape(keywords, limit = None):
 
     response = requests.get(BASE_URL, params=params)
     response.raise_for_status()
-    
+
     data = response.json()
     jobs = data.get("results", [])
     for entry in jobs:
         entry["_id"] = entry["uuid"]
+        entry["description"] = BeautifulSoup(entry["description"], "html.parser").get_text(separator=" ")
     
     with open("/opt/airflow/mcf_data.json", "w", encoding="utf-8") as f:
         json.dump(jobs, f, indent=4, ensure_ascii=False)
