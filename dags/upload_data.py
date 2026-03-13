@@ -21,7 +21,7 @@ def upload(db_name, col_name, f_path):
         db = client[f"{db_name}"]
 
         # Collections
-        collection = df[f"{col_name}"]
+        collection = db[f"{col_name}"]
 
         with open(f_path) as f:
             data = json.load(f)

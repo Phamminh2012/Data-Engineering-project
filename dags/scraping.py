@@ -44,12 +44,14 @@ def adzuna_import():
 def fetch_gov_sg_listings():
     URL = "https://raw.githubusercontent.com/opengovsg/careersgovsg-jobs-data/refs/heads/main/data/job-listings.json"
     response = requests.get(URL)
+    
     if response.status_code == 200:
         response = response.json()
         for entry in response:
             entry["_id"] = entry["jobId"]
-        with open("/opt/airflow/gov_job_search.json"):
-            json.dumps(response)
+        with open("/opt/airflow/gov_job_search.json", "w", encoding="utf-8") as f:
+            json.dump(response, f, indent = 4)
+            return "/opt/airflow/gov_job_search.json"
     else:
         print(f"Error! {response.status_code}")
         return None

@@ -3,7 +3,7 @@ import datetime
 from scraping import *
 from upload_data import upload
 
-@dag("job_scraper", schedule= None, start_date=datetime.datetime(2026, 1, 1))
+@dag("job_scraper", schedule=None, start_date=datetime.datetime(2026, 1, 1), catchup=False)
 def the_driver():
 
     @task(task_id="MCF-Scrape")
@@ -21,6 +21,10 @@ def the_driver():
     @task(task_id="GOV-SG-Scrape")
     def govSearch():
         return fetch_gov_sg_listings()
+    
+    @task
+    def upload_raw(db_name, col_name, f_path):
+        return upload(db_name, col_name, f_path)
 
     m = mcf()
     a = adzuna()
@@ -28,7 +32,9 @@ def the_driver():
     g = govSearch()
     raw_db_name = "raw_api_result"
 
-    upload(raw_db_name,"mcf", m)
-    upload(raw_db_name,"adzuma", a)
-    upload(raw_db_name, "jsearch", j)
-    upload(raw_db_name, "govsearch", g)
+    upload_raw(raw_db_name,"mcf", m)
+    upload_raw(raw_db_name,"adzuma", a)
+    upload_raw(raw_db_name, "jsearch", j)
+    upload_raw(raw_db_name, "govsearch", g)
+
+the_driver()
