@@ -61,7 +61,7 @@ result = client['raw_api_result']['adzuma'].aggregate([
                 }
             }, 
             'company': '$company.display_name', 
-            'source': 'adzuna'
+            'source': 'adzuma'
         }
     }, {
         '$out': {
@@ -93,7 +93,8 @@ result = client['raw_api_result']['jsearch'].aggregate([
                 '$dateFromString': {
                     'dateString': '$job_posted_at_datetime_utc'
                 }
-            }
+            }, 
+            'source': 'jsearch'
         }
     }, {
         '$project': {
