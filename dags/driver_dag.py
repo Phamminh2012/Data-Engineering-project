@@ -10,8 +10,8 @@ from rapidapi_import import fetch_jsearch_jobs as data_2
 from azuna_import import adzuna_import as data_3
 from mcf_scrap import mcf_scrape as data_1
 from upload_data import upload as upload_data
-
-
+from transform_mcf import transform_mcf 
+from transform_jsearch import transform_job_search
 with DAG(
     dag_id='Testing_airflow_first_time',
     description='Testing call API',
@@ -31,7 +31,7 @@ with DAG(
     
     tags=['tutorial_4'],
 )as dag:
-    
+    '''
     get_rapid_data = PythonOperator(
         task_id='get_rapid_data',
         python_callable=data_2,
@@ -49,21 +49,34 @@ with DAG(
         "limit": 5
         }
     )
-
-   
+    
+    
     
     upload_mongo = PythonOperator(
         task_id='upload_to_mongo',
         python_callable=upload_data
     )
-    
+    '''
+
+    transform_mcf_data = PythonOperator(
+        task_id='transform_mcf_data',
+        python_callable=transform_mcf,
+        op_kwargs={
+            "json_path":"/opt/airflow/data/raw/mcf_data.json"
+        }
+    )
+
+    transform_jsearch= PythonOperator(
+        task_id="transform_job_search",
+        python_callable=transform_job_search,
+        op_kwargs={"json_path":"/opt/airflow/data/raw/job_search.json",
+                   "skill_csv":"/opt/airflow/data/raw/distinct_skills.csv"}
+    )
+    '''
     get_rapid_data >> upload_mongo 
     get_adzuna_data >> upload_mongo 
     get_mcf_data >> upload_mongo
-    # 4. Set dependencies
-    # The '>>' operator tells Airflow the order of execution. 
-    # Here, hello_task must finish successfully before world_task is allowed to start.
-
+   '''
    
 
   

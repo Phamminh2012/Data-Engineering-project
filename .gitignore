@@ -1,6 +1,6 @@
 # Secrets
 .env
-
+distinct_skills.csv
 # Telegram session
 session.session
 
