@@ -62,7 +62,7 @@ def transform_job_search(json_path, skill_csv):
             "title": job.get("job_title"),
             "description": description,
             "company": job.get("employer_name"),
-            "job_posted_at_datetime_utc": None,
+            "createAt": None,
             "source": "job_search_api",
             "skills": extract_skills(description, matcher)
         }
@@ -72,9 +72,9 @@ def transform_job_search(json_path, skill_csv):
         if created_str:
             try:
                 dt = datetime.fromisoformat(created_str.replace("Z", "+00:00"))
-                transformed_job["job_posted_at_datetime_utc"] = dt.strftime("%Y-%m-%d")
+                transformed_job["createAt"] = dt.strftime("%Y-%m-%d")
             except Exception:
-                transformed_job["job_posted_at_datetime_utc"] = created_str
+                transformed_job["createAt"] = created_str
 
         result.append(transformed_job)
 

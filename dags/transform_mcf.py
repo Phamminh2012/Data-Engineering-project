@@ -27,7 +27,7 @@ def transform_mcf(json_path):
           "skills": req_skill,
           "position": position,
           "createAt": createAt,
-          "postedCompany": postedCompany,
+          "company": postedCompany,
           "source": "MCF"
       }
       results.append(temp)
