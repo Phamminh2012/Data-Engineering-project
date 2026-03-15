@@ -7,9 +7,9 @@ from airflow.operators.python import PythonOperator
 
 
 from rapidapi_import import fetch_jsearch_jobs as data_2
-from azuna_import import adzuna_import as data_3
+
 from mcf_scrap import mcf_scrape as data_1
-from upload_data import upload as upload_data
+from upload_data import upload,upload_clean 
 from transform_mcf import transform_mcf 
 from transform_jsearch import transform_job_search
 with DAG(
@@ -31,22 +31,20 @@ with DAG(
     
     tags=['tutorial_4'],
 )as dag:
-    '''
+   
+    
     get_rapid_data = PythonOperator(
         task_id='get_rapid_data',
         python_callable=data_2,
     )
-    get_adzuna_data = PythonOperator(
-       task_id='get_azuna_data',
-       python_callable=data_3
-    )
+    
     
     get_mcf_data = PythonOperator(
        task_id='get_mcf_data',
        python_callable=data_1,
        op_kwargs={
-        "keywords": "data scientist",
-        "limit": 5
+        "keywords": "IT job",
+        "limit": 30
         }
     )
     
@@ -54,9 +52,9 @@ with DAG(
     
     upload_mongo = PythonOperator(
         task_id='upload_to_mongo',
-        python_callable=upload_data
+        python_callable=upload
     )
-    '''
+    
 
     transform_mcf_data = PythonOperator(
         task_id='transform_mcf_data',
@@ -72,11 +70,20 @@ with DAG(
         op_kwargs={"json_path":"/opt/airflow/data/raw/job_search.json",
                    "skill_csv":"/opt/airflow/data/raw/distinct_skills.csv"}
     )
-    '''
+    
+    upload_mongo_clean = PythonOperator(
+        task_id='upload_to_mongo_clean',
+        python_callable=upload_clean
+    )
+    
     get_rapid_data >> upload_mongo 
-    get_adzuna_data >> upload_mongo 
+    
     get_mcf_data >> upload_mongo
-   '''
+
+    upload_mongo >>transform_mcf_data >> upload_mongo_clean
+    upload_mongo >> transform_jsearch >> upload_mongo_clean
+   
+   
    
 
   
