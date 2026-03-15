@@ -44,48 +44,7 @@ def transformMCF(to_key):
         }
     ])
 
-######
-
-def transformAdzuma(to_key):
-
-    from pymongo import MongoClient
-
-    # Requires the PyMongo package.
-    # https://api.mongodb.com/python/current
-
-    client = MongoClient("mongodb://host.docker.internal:27017")
-    result = client['raw_api_result']['adzuma'].aggregate([
-        {
-            '$project': {
-                'title': 1, 
-                'description': 1, 
-                'company': 1, 
-                'created': 1
-            }
-        }, {
-            '$set': {
-                'created': {
-                    '$dateFromString': {
-                        'dateString': '$created'
-                    }
-                }, 
-                'company': '$company.display_name', 
-                'source': 'adzuna'
-            }
-        }, {
-            '$merge': {
-                'into': {
-                    'db': 'transformed', 
-                    'coll': 'transformed'
-                }, 
-                'on': '_id', 
-                'whenMatched': 'merge', 
-                'whenNotMatched': 'insert'
-            }
-        }
-    ])
-
-######
+###
 
 def transformJSearch(to_key):
 
