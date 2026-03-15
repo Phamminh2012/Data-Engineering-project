@@ -3,6 +3,7 @@ import datetime
 from scraping import *
 from upload_data import upload
 from transform import *
+from skills_addition import do_skill_tagging_jsearch
 
 @dag("job_scraper", schedule=None, start_date=datetime.datetime(2026, 1, 1), catchup=False)
 def the_driver():
@@ -14,6 +15,10 @@ def the_driver():
     @task(task_id="JSearch-Scrape")
     def jSearch():
         return fetch_jsearch_jobs(query = "it job in singapore")
+
+    @task(task_id="Add-Skills-JSearch")
+    def addjSkills(json_input):
+        return do_skill_tagging_jsearch(json_input)
     
     @task
     def upload_raw(db_name, col_name, f_path):
@@ -29,12 +34,13 @@ def the_driver():
 
     m = mcf()
     j = jSearch()
+    j_skills = addjSkills(j)
     raw_db_name = "raw_api_result"
 
-    upload_raw(raw_db_name,"mcf", m)
-    upload_raw(raw_db_name, "jsearch", j)
+    m_u = upload_raw(raw_db_name,"mcf", m)
+    j_u = upload_raw(raw_db_name, "jsearch", j_skills)
 
-    transformMCFOnMongo(m)
-    transformJSEARCHOnMongo(j)
+    transformMCFOnMongo(m_u)
+    transformJSEARCHOnMongo(j_u)
 
 the_driver()

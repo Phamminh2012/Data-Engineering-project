@@ -60,7 +60,8 @@ def transformJSearch(to_key):
                 'job_title': 1, 
                 'job_description': 1, 
                 'eployer_name': 1, 
-                'job_posted_at_datetime_utc': 1
+                'job_posted_at_datetime_utc': 1,
+                'skills': 1
             }
         }, {
             '$set': {
