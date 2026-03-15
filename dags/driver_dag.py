@@ -32,7 +32,7 @@ with DAG(
     tags=['tutorial_4'],
 )as dag:
    
-    
+    """
     get_rapid_data = PythonOperator(
         task_id='get_rapid_data',
         python_callable=data_2,
@@ -43,7 +43,7 @@ with DAG(
        task_id='get_mcf_data',
        python_callable=data_1,
        op_kwargs={
-        "keywords": "IT job",
+        "keywords": "Software Engineer",
         "limit": 30
         }
     )
@@ -70,12 +70,12 @@ with DAG(
         op_kwargs={"json_path":"/opt/airflow/data/raw/job_search.json",
                    "skill_csv":"/opt/airflow/data/raw/distinct_skills.csv"}
     )
-    
+    """
     upload_mongo_clean = PythonOperator(
         task_id='upload_to_mongo_clean',
         python_callable=upload_clean
     )
-    
+    """
     get_rapid_data >> upload_mongo 
     
     get_mcf_data >> upload_mongo
@@ -84,6 +84,6 @@ with DAG(
     upload_mongo >> transform_jsearch >> upload_mongo_clean
    
    
-   
+   """
 
   

@@ -71,12 +71,12 @@ def upload_clean():
         
         
 
-        with open("/opt/airflow/data/raw/job_search.json") as f:
+        with open("/opt/airflow/data/processed/res_job_search.json") as f:
             rapid_data = json.load(f)
 
         
 
-        with open("/opt/airflow/data/raw/mcf_data.json") as f:
+        with open("/opt/airflow/data/processed/mcf_data_processed.json") as f:
             mcf_data = json.load(f)
 
         # insert
