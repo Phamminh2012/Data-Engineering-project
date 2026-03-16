@@ -43,21 +43,28 @@ def fetch_jsearch_jobs(
     return output_path
 
 
-def mcf_scrape(keywords, limit = None):
+def mcf_scrape(keywords, limit = None, n_pages = 1):
     BASE_URL="https://api.mycareersfuture.gov.sg/v2/jobs/"
-    params = {
-        "search": keywords,
-        "limit": limit
-    }
 
-    response = requests.get(BASE_URL, params=params)
-    response.raise_for_status()
 
-    data = response.json()
-    jobs = data.get("results", [])
-    for entry in jobs:
-        entry["_id"] = entry["uuid"]
-        entry["description"] = BeautifulSoup(entry["description"], "html.parser").get_text(separator=" ")
+    final_output = []
+
+    for page_num in range(1, n_pages + 1):
+        params = {
+            "search": keywords,
+            "limit": limit,
+            "page": page_num
+        }
+        response = requests.get(BASE_URL, params=params)
+        response.raise_for_status()
+
+        data = response.json()
+        jobs = data.get("results", [])
+        for entry in jobs:
+            entry["_id"] = entry["uuid"]
+            entry["description"] = BeautifulSoup(entry["description"], "html.parser").get_text(separator=" ")
+        
+        final_output.extend(jobs)
     
     with open("/opt/airflow/mcf_data.json", "w", encoding="utf-8") as f:
         json.dump(jobs, f, indent=4, ensure_ascii=False)

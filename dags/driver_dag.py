@@ -10,7 +10,7 @@ def the_driver():
 
     @task(task_id="MCF-Scrape")
     def mcf():
-        return mcf_scrape("software development", 100)
+        return mcf_scrape("software development", 50, 5) # Get first 250 jobs
     
     @task(task_id="JSearch-Scrape")
     def jSearch():
