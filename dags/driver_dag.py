@@ -13,11 +13,11 @@ def the_driver():
     
     @task(task_id="Adzuna-Scrape")
     def adzuna():
-        return adzuna_import("it job")
+        return adzuna_import("software job")
     
     @task(task_id="JSearch-Scrape")
     def jSearch():
-        return fetch_jsearch_jobs(query = "it job in singapore")
+        return fetch_jsearch_jobs(query = "software job in singapore")
     
     @task
     def upload_raw(db_name, col_name, f_path):
