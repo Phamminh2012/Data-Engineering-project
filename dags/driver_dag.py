@@ -3,21 +3,22 @@ import datetime
 from scraping import *
 from upload_data import upload
 from transform import *
+from skills_addition import do_skill_tagging_jsearch
 
 @dag("job_scraper", schedule=None, start_date=datetime.datetime(2026, 1, 1), catchup=False)
 def the_driver():
 
     @task(task_id="MCF-Scrape")
     def mcf():
-        return mcf_scrape("it job", 50)
-    
-    @task(task_id="Adzuna-Scrape")
-    def adzuna():
-        return adzuna_import("software job")
+        return mcf_scrape("software engineer", 50)
     
     @task(task_id="JSearch-Scrape")
     def jSearch():
-        return fetch_jsearch_jobs(query = "software job in singapore")
+        return fetch_jsearch_jobs(query = "it job in singapore")
+
+    @task(task_id="Add-Skills-JSearch")
+    def addjSkills(json_input):
+        return do_skill_tagging_jsearch(json_input)
     
     @task
     def upload_raw(db_name, col_name, f_path):
@@ -26,26 +27,20 @@ def the_driver():
     @task(task_id="Transform-MCF-Mongo")
     def transformMCFOnMongo(something):
         return transformMCF(something)
-
-    @task(task_id="Transform-Adzuma-Mongo")
-    def transformAdzumaOnMongo(something):
-        return transformAdzuma(something)
     
     @task(task_id="Transform-JSEARCH-Mongo")
     def transformJSEARCHOnMongo(something):
         return transformJSearch(something)
 
     m = mcf()
-    a = adzuna()
     j = jSearch()
+    j_skills = addjSkills(j)
     raw_db_name = "raw_api_result"
 
-    upload_raw(raw_db_name,"mcf", m)
-    upload_raw(raw_db_name,"adzuma", a)
-    upload_raw(raw_db_name, "jsearch", j)
+    m_u = upload_raw(raw_db_name,"mcf", m)
+    j_u = upload_raw(raw_db_name, "jsearch", j_skills)
 
-    transformMCFOnMongo(m)
-    transformAdzumaOnMongo(a)
-    transformJSEARCHOnMongo(j)
+    transformMCFOnMongo(m_u)
+    transformJSEARCHOnMongo(j_u)
 
 the_driver()
