@@ -8,8 +8,8 @@ load_dotenv()
     
 def fetch_jsearch_jobs(
     query: str = "IT job in Singapore",
-    page: int = 5,
-    num_pages: int = 5,
+    page: int = 1,
+    num_pages: int = 10,
     language: str = "en",
     output_path: str = "/opt/airflow/job_search.json",
 ) -> list[dict]:
