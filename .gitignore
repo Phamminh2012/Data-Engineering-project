@@ -11,6 +11,3 @@ logs/
 __pycache__/
 *.pyc
 session.session
-
-# Output data (optional - remove if you want to track these)
-*.json

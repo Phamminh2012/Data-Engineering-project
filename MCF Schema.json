@@ -1,0 +1,751 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "_id",
+    "_links",
+    "address",
+    "categories",
+    "description",
+    "employmentTypes",
+    "flexibleWorkArrangements",
+    "hiringCompany",
+    "jobTitles",
+    "metadata",
+    "minimumYearsExperience",
+    "numberOfVacancies",
+    "occupationId",
+    "otherRequirements",
+    "positionLevels",
+    "postedCompany",
+    "psdUrl",
+    "salary",
+    "schemes",
+    "shiftPattern",
+    "skills",
+    "sourceCode",
+    "ssecEqa",
+    "ssecFos",
+    "ssocCode",
+    "ssocVersion",
+    "status",
+    "title",
+    "uuid",
+    "workingHours"
+  ],
+  "properties": {
+    "_id": {
+      "type": "string"
+    },
+    "_links": {
+      "type": "object",
+      "required": [
+        "screeningQuestions",
+        "self"
+      ],
+      "properties": {
+        "screeningQuestions": {
+          "type": "object",
+          "required": [
+            "href"
+          ],
+          "properties": {
+            "href": {
+              "type": "string"
+            }
+          }
+        },
+        "self": {
+          "type": "object",
+          "required": [
+            "href"
+          ],
+          "properties": {
+            "href": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "address": {
+      "type": "object",
+      "required": [
+        "block",
+        "building",
+        "districts",
+        "floor",
+        "foreignAddress1",
+        "foreignAddress2",
+        "isOverseas",
+        "overseasCountry",
+        "postalCode",
+        "street",
+        "unit"
+      ],
+      "properties": {
+        "block": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "building": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "districts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "location",
+              "region",
+              "regionId",
+              "sectors"
+            ],
+            "properties": {
+              "id": {
+                "type": "integer"
+              },
+              "location": {
+                "type": "string"
+              },
+              "region": {
+                "type": "string"
+              },
+              "regionId": {
+                "type": "string"
+              },
+              "sectors": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "floor": {
+          "type": "null"
+        },
+        "foreignAddress1": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "foreignAddress2": {
+          "type": "null"
+        },
+        "isOverseas": {
+          "type": "boolean"
+        },
+        "lat": {
+          "$ref": "#/$defs/Double"
+        },
+        "lng": {
+          "$ref": "#/$defs/Double"
+        },
+        "overseasCountry": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "postalCode": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "street": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "unit": {
+          "type": "null"
+        }
+      }
+    },
+    "categories": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "category",
+          "id"
+        ],
+        "properties": {
+          "category": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "description": {
+      "type": "string"
+    },
+    "employmentTypes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "employmentType",
+          "id"
+        ],
+        "properties": {
+          "employmentType": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "flexibleWorkArrangements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "flexibleWorkArrangement",
+          "id"
+        ],
+        "properties": {
+          "flexibleWorkArrangement": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "hiringCompany": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "required": [
+            "_links",
+            "companyUrl",
+            "description",
+            "employeeCount",
+            "lastSyncDate",
+            "logoFileName",
+            "logoUploadPath",
+            "name",
+            "ssicCode",
+            "ssicCode2020",
+            "uen"
+          ],
+          "properties": {
+            "_links": {
+              "type": "object",
+              "required": [
+                "addresses",
+                "jobs",
+                "schemes",
+                "self"
+              ],
+              "properties": {
+                "addresses": {
+                  "type": "object",
+                  "required": [
+                    "href"
+                  ],
+                  "properties": {
+                    "href": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "jobs": {
+                  "type": "object",
+                  "required": [
+                    "href"
+                  ],
+                  "properties": {
+                    "href": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "schemes": {
+                  "type": "object",
+                  "required": [
+                    "href"
+                  ],
+                  "properties": {
+                    "href": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "self": {
+                  "type": "object",
+                  "required": [
+                    "href"
+                  ],
+                  "properties": {
+                    "href": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "companyUrl": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "description": {
+              "type": "string"
+            },
+            "employeeCount": {
+              "type": "null"
+            },
+            "lastSyncDate": {
+              "type": "string"
+            },
+            "logoFileName": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "logoUploadPath": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "name": {
+              "type": "string"
+            },
+            "ssicCode": {
+              "type": "string"
+            },
+            "ssicCode2020": {
+              "type": "string"
+            },
+            "uen": {
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "jobTitles": {
+      "type": "array",
+      "items": {
+        "type": []
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "required": [
+        "createdAt",
+        "createdBy",
+        "deletedAt",
+        "editCount",
+        "emailRecipient",
+        "expiryDate",
+        "isHideCompanyAddress",
+        "isHideEmployerName",
+        "isHideHiringEmployerName",
+        "isHideSalary",
+        "isJdEnhanced",
+        "isPostedOnBehalf",
+        "jobDetailsUrl",
+        "jobPostId",
+        "matchedSkillsScore",
+        "newPostingDate",
+        "originalPostingDate",
+        "repostCount",
+        "totalNumberJobApplication",
+        "totalNumberOfView",
+        "updatedAt"
+      ],
+      "properties": {
+        "createdAt": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "deletedAt": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "editCount": {
+          "type": "integer"
+        },
+        "emailRecipient": {
+          "type": "string"
+        },
+        "expiryDate": {
+          "type": "string"
+        },
+        "isHideCompanyAddress": {
+          "type": "boolean"
+        },
+        "isHideEmployerName": {
+          "type": "boolean"
+        },
+        "isHideHiringEmployerName": {
+          "type": "boolean"
+        },
+        "isHideSalary": {
+          "type": "boolean"
+        },
+        "isJdEnhanced": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "isPostedOnBehalf": {
+          "type": "boolean"
+        },
+        "jobDetailsUrl": {
+          "type": "string"
+        },
+        "jobPostId": {
+          "type": "string"
+        },
+        "matchedSkillsScore": {
+          "type": "null"
+        },
+        "newPostingDate": {
+          "type": "string"
+        },
+        "originalPostingDate": {
+          "type": "string"
+        },
+        "repostCount": {
+          "type": "integer"
+        },
+        "totalNumberJobApplication": {
+          "type": "integer"
+        },
+        "totalNumberOfView": {
+          "type": "integer"
+        },
+        "updatedAt": {
+          "type": "string"
+        }
+      }
+    },
+    "minimumYearsExperience": {
+      "type": "integer"
+    },
+    "numberOfVacancies": {
+      "type": "integer"
+    },
+    "occupationId": {
+      "type": "string"
+    },
+    "otherRequirements": {
+      "type": "null"
+    },
+    "positionLevels": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "position"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "position": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "postedCompany": {
+      "type": "object",
+      "required": [
+        "_links",
+        "companyUrl",
+        "description",
+        "employeeCount",
+        "lastSyncDate",
+        "logoFileName",
+        "logoUploadPath",
+        "name",
+        "responsiveEmployer",
+        "ssicCode",
+        "ssicCode2020",
+        "uen"
+      ],
+      "properties": {
+        "_links": {
+          "type": "object",
+          "required": [
+            "addresses",
+            "jobs",
+            "schemes",
+            "self"
+          ],
+          "properties": {
+            "addresses": {
+              "type": "object",
+              "required": [
+                "href"
+              ],
+              "properties": {
+                "href": {
+                  "type": "string"
+                }
+              }
+            },
+            "jobs": {
+              "type": "object",
+              "required": [
+                "href"
+              ],
+              "properties": {
+                "href": {
+                  "type": "string"
+                }
+              }
+            },
+            "schemes": {
+              "type": "object",
+              "required": [
+                "href"
+              ],
+              "properties": {
+                "href": {
+                  "type": "string"
+                }
+              }
+            },
+            "self": {
+              "type": "object",
+              "required": [
+                "href"
+              ],
+              "properties": {
+                "href": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "companyUrl": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "employeeCount": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "lastSyncDate": {
+          "type": "string"
+        },
+        "logoFileName": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "logoUploadPath": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "name": {
+          "type": "string"
+        },
+        "responsiveEmployer": {
+          "type": "object",
+          "required": [
+            "isResponsive"
+          ],
+          "properties": {
+            "isResponsive": {
+              "type": "boolean"
+            }
+          }
+        },
+        "ssicCode": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ssicCode2020": {
+          "type": "string"
+        },
+        "uen": {
+          "type": "string"
+        }
+      }
+    },
+    "psdUrl": {
+      "type": "null"
+    },
+    "salary": {
+      "type": "object",
+      "required": [
+        "maximum",
+        "minimum",
+        "type"
+      ],
+      "properties": {
+        "maximum": {
+          "type": "integer"
+        },
+        "minimum": {
+          "type": "integer"
+        },
+        "type": {
+          "type": "object",
+          "required": [
+            "id",
+            "salaryType"
+          ],
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "salaryType": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "schemes": {
+      "type": "array",
+      "items": {
+        "type": []
+      }
+    },
+    "shiftPattern": {
+      "type": "null"
+    },
+    "skills": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "confidence",
+          "isKeySkill",
+          "skill",
+          "uuid"
+        ],
+        "properties": {
+          "confidence": {
+            "type": "null"
+          },
+          "isKeySkill": {
+            "type": "boolean"
+          },
+          "skill": {
+            "type": "string"
+          },
+          "uuid": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "sourceCode": {
+      "type": "string"
+    },
+    "ssecEqa": {
+      "type": "string"
+    },
+    "ssecFos": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "ssocCode": {
+      "type": "string"
+    },
+    "ssocVersion": {
+      "type": "string"
+    },
+    "status": {
+      "type": "object",
+      "required": [
+        "id",
+        "jobStatus"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "jobStatus": {
+          "type": "string"
+        }
+      }
+    },
+    "title": {
+      "type": "string"
+    },
+    "uuid": {
+      "type": "string"
+    },
+    "workingHours": {
+      "type": "null"
+    }
+  },
+  "$defs": {
+    "Double": {
+      "oneOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "$numberDouble": {
+              "enum": [
+                "Infinity",
+                "-Infinity",
+                "NaN"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  }
+}
