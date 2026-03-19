@@ -2,11 +2,11 @@ skill
 .net
 .net development tools
 .net framework
-2d
 2d animation
+2d/3d animation
 3d animation
 3d modeling
-a
+a/b testing
 access control
 accessibility testing
 account management
@@ -15,12 +15,14 @@ actuators
 ada compliance
 administrative support
 adobe creative suite
-advanced ai
+advanced ai/ml
 agile methodologies
 agile testing
-ai
 ai architecture
 ai strategy
+ai/ml algorithms
+ai/ml architecture
+ai/ml frameworks
 alerting
 alerting systems
 algorithm design
@@ -28,7 +30,6 @@ algorithms
 analysis
 analytics
 android sdk
-android sdks
 android studio
 angular
 angularjs
@@ -68,7 +69,6 @@ aws lambda
 aws services
 azure
 azure services
-b testing
 back-end technologies
 backup and recovery
 bamboo
@@ -95,26 +95,25 @@ business intelligence tools
 business process analysis
 business process improvement
 business systems
-c
 c#
 c++
+c/c++
 cabling
-cad
-cam
-cam software
+cad/cam
+cad/cam software
 cartography
-cd
-cd integration
-cd pipelines
 change management
 character design
 character setup
 chef
 chef inspec
-ci
+ci/cd
+ci/cd integration
+ci/cd pipelines
 cinematography
 circuit design
 cisco
+cisco/juniper devices
 client management
 cloud architecture
 cloud automation tools
@@ -241,7 +240,7 @@ execution
 express.js
 falco
 figma
-film
+film/animation
 financial analysis
 firebase
 firewall management
@@ -275,10 +274,10 @@ grafana
 graphic design
 groovy
 hadoop
-hardware
 hardware design
 hardware interfaces
 hardware management
+hardware/software
 hashicorp tools
 hashicorp vault
 hibernate
@@ -287,7 +286,7 @@ html5
 iam
 iam systems
 identity and access management
-ids
+ids/ips
 illustration
 image manipulation
 implementation
@@ -313,9 +312,8 @@ inventory management
 investment management
 ios
 ios sdk
+ios/android sdks
 iot platforms
-ip
-ips
 istio
 it analysis
 it auditing
@@ -336,7 +334,6 @@ jenkins
 jfrog cli
 jira
 jquery
-juniper devices
 junit
 kafka
 kanban
@@ -347,7 +344,7 @@ knowledge management
 kotlin
 kubernetes
 kubernetes security
-lan
+lan/wan
 laravel
 layout
 leadership
@@ -360,6 +357,7 @@ linq
 linux
 linux administration
 linux servers
+linux/windows servers
 load balancing
 log aggregation
 log management
@@ -380,10 +378,6 @@ microprocessors
 microservices
 microsoft dynamics
 migration tools
-ml
-ml algorithms
-ml architecture
-ml frameworks
 mobile app development
 mobile development
 mobile security
@@ -446,7 +440,7 @@ performance testing
 performance tuning
 php
 php development
-pl
+pl/sql
 planning
 platform engineering
 portfolio management
@@ -476,7 +470,6 @@ python testing
 pytorch
 qa processes
 quality assurance
-r
 react
 react native
 reactjs
@@ -548,7 +541,6 @@ sharepoint framework
 simulation
 smart contracts
 soa
-software
 software architecture
 software configuration management
 software design
@@ -602,7 +594,7 @@ systems integration
 t-sql
 tableau
 taxonomy
-tcp
+tcp/ip
 team facilitation
 team leadership
 team management
@@ -638,9 +630,12 @@ troubleshooting
 trust management
 typescript
 udeploy (urbancode deploy)
-ui
 ui design
 ui design principles
+ui/ux
+ui/ux basics
+ui/ux design
+ui/ux principles
 uml
 unit testing
 unity
@@ -653,10 +648,7 @@ user experience design principles
 user management
 user research
 user testing
-ux
-ux basics
-ux design
-ux principles
+ux/ui design
 validation
 version control
 video production
@@ -676,7 +668,6 @@ vue.js
 vulnerability assessment
 vulnerability management
 vulnerability scanning
-wan
 wcag
 web accessibility guidelines
 web analytics tools
@@ -691,7 +682,6 @@ web3
 webdriver
 windows server
 windows server administration
-windows servers
 wireframing
 wordpress
 workflow configuration

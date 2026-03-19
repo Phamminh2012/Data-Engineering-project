@@ -28,6 +28,13 @@ def fetch_jsearch_jobs(
     }
 
     response = requests.get(JSEARCH_URL, headers=JSEARCH_HEADERS, params=params)
+
+    # Resiliency
+    if response.status_code == 429:
+        data = []
+        with open(output_path, "w", encoding="utf-8") as f:
+            json.dump(data, f, ensure_ascii=False, indent=4, default=str)
+        return output_path
     response.raise_for_status()
 
     data = response.json().get("data", [])
@@ -56,6 +63,13 @@ def mcf_scrape(keywords, limit = None, n_pages = 1):
             "page": page_num
         }
         response = requests.get(BASE_URL, params=params)
+        # Resiliency
+        if response.status_code == 429:
+            data = []
+            with open(output_path, "w", encoding="utf-8") as f:
+                json.dump(data, f, ensure_ascii=False, indent=4, default=str)
+            return output_path
+        response.raise_for_status()
         response.raise_for_status()
 
         data = response.json()
