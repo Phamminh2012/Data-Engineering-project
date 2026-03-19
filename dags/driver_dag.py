@@ -11,11 +11,11 @@ def the_driver():
 
     @task(task_id="MCF-Scrape")
     def mcf():
-        return mcf_scrape("software development", 20, 2)
+        return mcf_scrape("software development", limit=20, n_pages = 5) # First 100 jobs
     
     @task(task_id="JSearch-Scrape")
     def jSearch():
-        return fetch_jsearch_jobs(query = "software development job in singapore", num_pages = 2)
+        return fetch_jsearch_jobs(query = "software development job in singapore", num_pages = 5)
 
     @task(task_id="Add-Skills-JSearch")
     def addjSkills(json_input):
