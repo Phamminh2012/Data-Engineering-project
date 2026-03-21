@@ -1,4 +1,6 @@
 # Aggregations Operators!
+# After some feedback, this isn't really so sophisicated...
+# That being said, it's still a work in progress.
 MDB_LINK = "mongodb://host.docker.internal:27017"
 
 def do_job_count(whatever):

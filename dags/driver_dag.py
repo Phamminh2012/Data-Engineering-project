@@ -4,7 +4,6 @@ from scraping import *
 from upload_data import upload
 from transform import *
 from skills_addition import do_skill_tagging_jsearch
-from aggregations import *
 
 @dag("job_scraper", schedule=None, start_date=datetime.datetime(2026, 1, 1), catchup=False)
 def the_driver():
@@ -32,14 +31,6 @@ def the_driver():
     @task(task_id="Transform-JSEARCH-Mongo")
     def transformJSEARCHOnMongo(something):
         return transformJSearch(something)
-    
-    @task(task_id="Top-5-Skills")
-    def findTop5(*args):
-        return do_skills_count(None)
-    
-    @task(task_id="Count-Jobs")
-    def countJobs(*args):
-        return do_job_count(None)
 
     m = mcf()
     j = jSearch()
@@ -51,8 +42,5 @@ def the_driver():
 
     t_m = transformMCFOnMongo(m_u)
     t_j = transformJSEARCHOnMongo(j_u)
-
-    findTop5(t_m, t_j)
-    countJobs(t_m, t_j)
 
 the_driver()
