@@ -3,8 +3,9 @@ import pandas as pd
 import spacy
 from spacy.matcher import PhraseMatcher
 from datetime import datetime
+from pymongo import MongoClient
 
-def do_skill_tagging_jsearch(raw_api_result):
+def do_skill_tagging_jsearch(collection_name):
     # Load SPACY Model
     nlp = spacy.load("en_core_web_sm")
 
@@ -29,13 +30,20 @@ def do_skill_tagging_jsearch(raw_api_result):
 
         return sorted(found)
     
-    with open(raw_api_result, "r", encoding = "utf-8") as f:
-        data = json.load(f)
+    # Connect to MongoDB
+    client = MongoClient('mongodb://host.docker.internal:27017')
+    db = client['raw']
+    collection = db[collection_name]
     
-    for entry in data:
-        entry["skills"] = extract_skills(entry["job_description"])
+    # Find documents that don't have skills yet
+    cursor = collection.find({'skills': {'$exists': False}})
     
-    with open("/opt/airflow/processed_jsearch_skills.json", "w", encoding = "utf-8") as h:
-        json.dump(data, h, indent = False)
+    updated_count = 0
+    for doc in cursor:
+        skills = extract_skills(doc.get('job_description', ''))
+        collection.update_one({'_id': doc['_id']}, {'$set': {'skills': skills}})
+        updated_count += 1
     
-    return "/opt/airflow/processed_jsearch_skills.json"
+    client.close()
+    
+    return updated_count
