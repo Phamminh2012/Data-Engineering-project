@@ -1,3 +1,6 @@
 pymongo
 nltk
 spacy
+pandas
+statsmodels
+scikit-learn

@@ -4,6 +4,7 @@ from scraping import *
 from upload_data import upload, upload_csv
 from transform import *
 from skills_addition import do_skill_tagging_jsearch
+from aggregations import do_job_count, do_skills_count, do_regression
 
 @dag("job_scraper", schedule=None, start_date=datetime.datetime(2026, 1, 1), catchup=False)
 def the_driver():
@@ -48,6 +49,18 @@ def the_driver():
     def load_ssec():
         return upload_csv("raw_api_result", "ssec_mappings", "/opt/airflow/dags/SSEC MAPPINGS.csv")
 
+    @task(task_id="Job-Count-Aggregation")
+    def job_count_agg(dummy):
+        return do_job_count(dummy)
+
+    @task(task_id="Skills-Count-Aggregation")
+    def skills_count_agg(dummy):
+        return do_skills_count(dummy)
+
+    @task(task_id="Regression-Analysis")
+    def regression_agg(dummy):
+        return do_regression(dummy)
+
     m = mcf()
     j = jSearch()
     raw_db_name = "raw_api_result"
@@ -69,5 +82,9 @@ def the_driver():
     t_m.set_upstream(ssec)
     t_j.set_upstream(zone)
     t_j.set_upstream(ostar)
+
+    agg_j = job_count_agg(t_m)
+    agg_s = skills_count_agg(t_m)
+    agg_r = regression_agg(m_u)
 
 the_driver()
