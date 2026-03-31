@@ -1,15 +1,15 @@
 # Secrets
-key.env
+.env
 
 # Telegram session
 session.session
 
 # Jupyter checkpoints
 .ipynb_checkpoints/
-
+logs/
 # Python cache
 __pycache__/
 *.pyc
+session.session
 
-# Output data (optional - remove if you want to track these)
-*.json
+data/

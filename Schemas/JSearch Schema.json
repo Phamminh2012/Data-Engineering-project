@@ -1,0 +1,208 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "_id",
+    "apply_options",
+    "employer_logo",
+    "employer_name",
+    "employer_website",
+    "job_apply_is_direct",
+    "job_apply_link",
+    "job_benefits",
+    "job_city",
+    "job_country",
+    "job_description",
+    "job_employment_type",
+    "job_employment_types",
+    "job_google_link",
+    "job_highlights",
+    "job_id",
+    "job_is_remote",
+    "job_latitude",
+    "job_location",
+    "job_longitude",
+    "job_max_salary",
+    "job_min_salary",
+    "job_onet_job_zone",
+    "job_onet_soc",
+    "job_posted_at",
+    "job_posted_at_datetime_utc",
+    "job_posted_at_timestamp",
+    "job_publisher",
+    "job_salary_period",
+    "job_state",
+    "job_title",
+    "skills"
+  ],
+  "properties": {
+    "_id": {
+      "type": "string"
+    },
+    "apply_options": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "apply_link",
+          "is_direct",
+          "publisher"
+        ],
+        "properties": {
+          "apply_link": {
+            "type": "string"
+          },
+          "is_direct": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "publisher": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "employer_logo": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "employer_name": {
+      "type": "string"
+    },
+    "employer_website": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "job_apply_is_direct": {
+      "type": "boolean"
+    },
+    "job_apply_link": {
+      "type": "string"
+    },
+    "job_benefits": {
+      "type": "null"
+    },
+    "job_city": {
+      "type": "null"
+    },
+    "job_country": {
+      "type": "string"
+    },
+    "job_description": {
+      "type": "string"
+    },
+    "job_employment_type": {
+      "type": "string"
+    },
+    "job_employment_types": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "job_google_link": {
+      "type": "string"
+    },
+    "job_highlights": {
+      "type": "object",
+      "required": [],
+      "properties": {}
+    },
+    "job_id": {
+      "type": "string"
+    },
+    "job_is_remote": {
+      "type": "boolean"
+    },
+    "job_latitude": {
+      "$ref": "#/$defs/Double"
+    },
+    "job_location": {
+      "type": "string"
+    },
+    "job_longitude": {
+      "$ref": "#/$defs/Double"
+    },
+    "job_max_salary": {
+      "type": "null"
+    },
+    "job_min_salary": {
+      "type": "null"
+    },
+    "job_onet_job_zone": {
+      "type": "string"
+    },
+    "job_onet_soc": {
+      "type": "string"
+    },
+    "job_posted_at": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "job_posted_at_datetime_utc": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "job_posted_at_timestamp": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "job_publisher": {
+      "type": "string"
+    },
+    "job_salary": {
+      "type": "null"
+    },
+    "job_salary_period": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "job_state": {
+      "type": "null"
+    },
+    "job_title": {
+      "type": "string"
+    },
+    "skills": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "$defs": {
+    "Double": {
+      "oneOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "$numberDouble": {
+              "enum": [
+                "Infinity",
+                "-Infinity",
+                "NaN"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  }
+}
