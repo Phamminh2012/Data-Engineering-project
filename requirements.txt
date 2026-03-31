@@ -4,3 +4,4 @@ spacy
 pandas
 statsmodels
 scikit-learn
+wordcloud

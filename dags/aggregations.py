@@ -136,6 +136,89 @@ def do_skills_count(whatever):
     for item in result:
         client['final']['top5Skills'].update_one({'_id': item['_id']}, {'$set': item}, upsert=True)
 
+
+def do_job_description_wordcloud(whatever):
+    from pymongo import MongoClient
+    from collections import Counter
+    import re
+    import pandas as pd
+    from wordcloud import WordCloud
+    import nltk
+    from nltk.corpus import stopwords
+    from nltk.tokenize import word_tokenize
+
+    nltk.download('punkt', quiet=True)
+    nltk.download('stopwords', quiet=True)
+
+    STOPWORDS = set(stopwords.words('english')) | {
+        'job', 'role', 'skills', 'experience', 'responsibilities', 'requirements', 'ability'
+    }
+
+    client = MongoClient(MDB_LINK)
+    collection = client['transformed']['transformed']
+
+    query = {
+        '$or': [
+            {'job_description': {'$exists': True, '$ne': None}},
+            {'description': {'$exists': True, '$ne': None}}
+        ]
+    }
+
+    docs = collection.find(query, {'job_description': 1, 'description': 1})
+    text_parts = []
+
+    for doc in docs:
+        text = None
+        if 'job_description' in doc and isinstance(doc['job_description'], str) and doc['job_description'].strip():
+            text = doc['job_description']
+        elif 'description' in doc and isinstance(doc['description'], str) and doc['description'].strip():
+            text = doc['description']
+        if text:
+            text_parts.append(text)
+
+    if not text_parts:
+        raise ValueError('No job_description or description text found in transformed.transformed collection')
+
+    text_corpus = '\n'.join(text_parts)
+
+    try:
+        tokenized = word_tokenize(text_corpus.lower())
+    except LookupError as e:
+        # NLTK punkt missing despite downloads; fallback to whitespace+regex split
+        tokenized = re.findall(r"[A-Za-z0-9']+", text_corpus.lower())
+
+    words = [re.sub(r"[^a-z0-9]", "", w) for w in tokenized]
+    tokens = [t for t in words if t and t not in STOPWORDS and len(t) > 2]
+
+    if not tokens:
+        raise ValueError('No valid tokens available after normalization')
+
+    freq = Counter(tokens)
+
+    rel_path_prefix = '/opt/airflow/dags'
+    word_freq_path = f'{rel_path_prefix}/job_description_word_freq.csv'
+    image_path = f'{rel_path_prefix}/job_description_wordcloud.png'
+
+    pd.DataFrame(freq.most_common(200), columns=['word', 'count']).to_csv(word_freq_path, index=False)
+
+    wc = WordCloud(width=1600, height=800, background_color='white', colormap='viridis').generate_from_frequencies(freq)
+    wc.to_file(image_path)
+
+    return {
+        'image_path': image_path,
+        'freq_csv': word_freq_path,
+        'total_words': sum(freq.values()),
+        'unique_words': len(freq)
+    }
+
+    return {
+        'image_path': image_path,
+        'freq_csv': word_freq_path,
+        'total_words': sum(freq.values()),
+        'unique_words': len(freq)
+    }
+
+
 def do_regression(whatever):
     from pymongo import MongoClient
     import pandas as pd
