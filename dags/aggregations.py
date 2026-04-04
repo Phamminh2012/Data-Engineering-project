@@ -146,13 +146,17 @@ def do_job_description_wordcloud(whatever):
     import nltk
     from nltk.corpus import stopwords
     from nltk.tokenize import word_tokenize
+    from nltk.stem import WordNetLemmatizer
 
     nltk.download('punkt', quiet=True)
     nltk.download('stopwords', quiet=True)
+    nltk.download('wordnet', quiet=True)
 
-    STOPWORDS = set(stopwords.words('english')) | {
-        'job', 'role', 'skills', 'experience', 'responsibilities', 'requirements', 'ability'
-    }
+    def preprocess_text(text):
+        stop_words = set(stopwords.words('english')) | {'software', 'experience', 'team', 'business', 'development', 'technical', 'job', 'role', 'skills', 'responsibilities', 'requirements', 'ability'}
+        lemmatizer = WordNetLemmatizer()
+        words = [lemmatizer.lemmatize(word.lower()) for word in text.split()]
+        return ' '.join([word for word in words if word not in stop_words])
 
     client = MongoClient(MDB_LINK)
     collection = client['transformed']['transformed']
@@ -179,16 +183,18 @@ def do_job_description_wordcloud(whatever):
     if not text_parts:
         raise ValueError('No job_description or description text found in transformed.transformed collection')
 
-    text_corpus = '\n'.join(text_parts)
+    # Preprocess each text part
+    preprocessed_texts = [preprocess_text(text) for text in text_parts]
+    text_corpus = '\n'.join(preprocessed_texts)
 
     try:
-        tokenized = word_tokenize(text_corpus.lower())
+        tokenized = word_tokenize(text_corpus)
     except LookupError as e:
         # NLTK punkt missing despite downloads; fallback to whitespace+regex split
-        tokenized = re.findall(r"[A-Za-z0-9']+", text_corpus.lower())
+        tokenized = re.findall(r"[A-Za-z0-9']+", text_corpus)
 
     words = [re.sub(r"[^a-z0-9]", "", w) for w in tokenized]
-    tokens = [t for t in words if t and t not in STOPWORDS and len(t) > 2]
+    tokens = [t for t in words if t and len(t) > 2]
 
     if not tokens:
         raise ValueError('No valid tokens available after normalization')
@@ -203,13 +209,6 @@ def do_job_description_wordcloud(whatever):
 
     wc = WordCloud(width=1600, height=800, background_color='white', colormap='viridis').generate_from_frequencies(freq)
     wc.to_file(image_path)
-
-    return {
-        'image_path': image_path,
-        'freq_csv': word_freq_path,
-        'total_words': sum(freq.values()),
-        'unique_words': len(freq)
-    }
 
     return {
         'image_path': image_path,
@@ -253,10 +252,6 @@ def do_regression(whatever):
         else:
             item['skills'] = []
     
-    # Save as JSON
-    with open('/opt/airflow/dags/regression_data.json', 'w') as f:
-        json.dump(data, f)
-    
     # Load into DataFrame and perform regression
     df = pd.DataFrame(data)
     df = df.dropna(subset=['salary_mean', 'skills'])
@@ -283,3 +278,76 @@ def do_regression(whatever):
     summary_df = pd.DataFrame({'Coefficients': model.params, 'P-Values': model.pvalues})
     summary_df = summary_df.sort_values(by="P-Values", ascending=True)
     summary_df.to_csv("/opt/airflow/dags/CoefficeintReport.csv")
+
+
+def do_topic_modeling(whatever):
+    from pymongo import MongoClient
+    from nltk.corpus import stopwords
+    from nltk.stem import WordNetLemmatizer
+    from sklearn.feature_extraction.text import CountVectorizer
+    from sklearn.decomposition import LatentDirichletAllocation
+    import pandas as pd
+    import nltk
+
+    nltk.download('stopwords', quiet=True)
+    nltk.download('wordnet', quiet=True)
+
+    def preprocess_text(text):
+        stop_words = set(stopwords.words('english')) | {'software', 'experience', 'team', 'business', 'development', 'technical'}
+        return ' '.join([word for word in text.split() if word.lower() not in stop_words])
+
+    def lemmatise_text(text):
+        lemmatizer = WordNetLemmatizer()
+        return ' '.join([lemmatizer.lemmatize(word) for word in text.split()])
+
+    def perform_topic_modeling(texts, num_topics=5):
+        preprocessed_texts = [lemmatise_text(text) for text in texts]
+        preprocessed_texts = [preprocess_text(text) for text in preprocessed_texts]
+        vectorizer = CountVectorizer()
+        dtm = vectorizer.fit_transform(preprocessed_texts)
+        lda = LatentDirichletAllocation(n_components=num_topics, random_state=42)
+        lda.fit(dtm)
+        topics = []
+        for topic_idx, topic in enumerate(lda.components_):
+            top_words = [vectorizer.get_feature_names_out()[i] for i in topic.argsort()[:-11:-1]]
+            topics.append(f"Topic {topic_idx + 1}: " + ", ".join(top_words))
+        return topics
+
+    client = MongoClient(MDB_LINK)
+    collection = client['transformed']['transformed']
+
+    query = {
+        '$or': [
+            {'job_description': {'$exists': True, '$ne': None}},
+            {'description': {'$exists': True, '$ne': None}}
+        ]
+    }
+
+    docs = collection.find(query, {'job_description': 1, 'description': 1})
+    texts = []
+
+    for doc in docs:
+        text = None
+        if 'job_description' in doc and isinstance(doc['job_description'], str) and doc['job_description'].strip():
+            text = doc['job_description']
+        elif 'description' in doc and isinstance(doc['description'], str) and doc['description'].strip():
+            text = doc['description']
+        if text:
+            texts.append(text)
+
+    if not texts:
+        raise ValueError('No job_description or description text found in transformed.transformed collection')
+
+    topics = perform_topic_modeling(texts, num_topics=9)
+
+    # Output topics to text file
+    with open('/opt/airflow/dags/topics.txt', 'w') as f:
+        f.write("Identified Topics:\n")
+        for topic in topics:
+            f.write(topic)
+            f.write("\n")
+        f.write(f"Correct as of {pd.Timestamp.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+
+    # Merge into DB
+    topic_doc = {'_id': 'latest_topics', 'topics': topics}
+    client['final']['topics'].update_one({'_id': 'latest_topics'}, {'$set': topic_doc}, upsert=True)
