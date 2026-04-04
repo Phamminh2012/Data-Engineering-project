@@ -23,7 +23,7 @@ def fetch_jsearch_jobs(
 
     JSEARCH_URL = "https://jsearch.p.rapidapi.com/search"
     JSEARCH_HEADERS = {
-        "X-RapidAPI-Key": os.getenv("JSEARCH_API_ZD"),
+        "X-RapidAPI-Key": os.getenv("JSEARCH_API_KEY"),
         "X-RapidAPI-Host": "jsearch.p.rapidapi.com",
         "country": "sg"
     }
