@@ -223,7 +223,11 @@ def do_regression(whatever):
     import pandas as pd
     import statsmodels.api as sm
     from sklearn.preprocessing import MultiLabelBinarizer
+    import matplotlib.pyplot as plt
+    import matplotlib.patches as mpatches
+    import numpy as np
     import json
+    from statsmodels.nonparametric.smoothers_lowess import lowess
 
     client = MongoClient(MDB_LINK)
     
@@ -279,6 +283,43 @@ def do_regression(whatever):
     summary_df = summary_df.sort_values(by="P-Values", ascending=True)
     summary_df.to_csv("/opt/airflow/dags/CoefficeintReport.csv")
 
+    #draw graph
+    coef = model.params.drop('const')
+    pvals = model.pvalues.drop('const')
+    sig = coef[pvals < 0.05].sort_values()
+    
+    #top 6 pos + neg
+    top = pd.concat([sig.head(6), sig.tail(6)]).drop_duplicates()
+    colors = ['#e05c5c' if v < 0 else '#4caf7d' for v in top.values]
+
+    fig, ax = plt.subplots(figsize=(8, 5))
+    bars = ax.barh(top.index, top.values, color=colors, height=0.6)
+    ax.axvline(0, color='gray', linewidth=0.8, linestyle='--')
+    ax.set_xlabel('Coefficient (SGD/month)')
+    ax.set_title('Skill coefficients — significant only (p < 0.05)')
+    pos_p = mpatches.Patch(color='#4caf7d', label='Positive effect')
+    neg_p = mpatches.Patch(color='#e05c5c', label='Negative effect')
+    ax.legend(handles=[pos_p, neg_p])
+    plt.tight_layout()
+    plt.savefig('/opt/airflow/dags/save_img/coef_plot.png', dpi=150)
+    plt.close()
+    ## chart 2
+    fitted = model.fittedvalues
+    residuals = model.resid
+
+    fig2, ax2 = plt.subplots(figsize=(8, 5))
+    ax2.scatter(fitted, residuals, alpha=0.35, s=18, color='#5b8dd9')
+    ax2.axhline(0, color='gray', linewidth=0.8, linestyle='--')
+    ax2.set_xlabel('Fitted values (SGD/month)')
+    ax2.set_ylabel('Residuals')
+    ax2.set_title('Residuals vs Fitted — OLS assumption check')
+    
+    sm_vals = lowess(residuals, fitted, frac=0.3)
+    ax2.plot(sm_vals[:, 0], sm_vals[:, 1], color='#e07b54', linewidth=1.5, label='LOWESS trend')
+    ax2.legend()
+    plt.tight_layout()
+    plt.savefig('/opt/airflow/dags/save_img/residuals_plot.png', dpi=150)
+    plt.close()
 
 def do_topic_modeling(whatever):
     from pymongo import MongoClient
@@ -286,14 +327,24 @@ def do_topic_modeling(whatever):
     from nltk.stem import WordNetLemmatizer
     from sklearn.feature_extraction.text import CountVectorizer
     from sklearn.decomposition import LatentDirichletAllocation
+    from sklearn.metrics import silhouette_score, silhouette_samples
+    import matplotlib.pyplot as plt
+    import matplotlib.cm as cm
+    import numpy as np
     import pandas as pd
     import nltk
+    import os
+
+    os.makedirs('/opt/airflow/dags/save_img', exist_ok=True)
 
     nltk.download('stopwords', quiet=True)
     nltk.download('wordnet', quiet=True)
 
     def preprocess_text(text):
-        stop_words = set(stopwords.words('english')) | {'software', 'experience', 'team', 'business', 'development', 'technical'}
+        stop_words = set(stopwords.words('english')) | {
+            'software', 'experience', 'team', 'business', 'development', 'technical',
+            'strong', 'using', 'including', 'platform', 'work', 'support'
+        }
         return ' '.join([word for word in text.split() if word.lower() not in stop_words])
 
     def lemmatise_text(text):
@@ -311,8 +362,9 @@ def do_topic_modeling(whatever):
         for topic_idx, topic in enumerate(lda.components_):
             top_words = [vectorizer.get_feature_names_out()[i] for i in topic.argsort()[:-11:-1]]
             topics.append(f"Topic {topic_idx + 1}: " + ", ".join(top_words))
-        return topics
+        return topics, lda, vectorizer, dtm, preprocessed_texts
 
+    # --- Fetch data ---
     client = MongoClient(MDB_LINK)
     collection = client['transformed']['transformed']
 
@@ -336,18 +388,82 @@ def do_topic_modeling(whatever):
             texts.append(text)
 
     if not texts:
-        raise ValueError('No job_description or description text found in transformed.transformed collection')
+        raise ValueError('No job_description or description text found')
 
-    topics = perform_topic_modeling(texts, num_topics=9)
+    topics, lda, vectorizer, dtm, preprocessed_texts = perform_topic_modeling(texts, num_topics=9)
 
-    # Output topics to text file
+    # --- Save topics to txt ---
     with open('/opt/airflow/dags/topics.txt', 'w') as f:
         f.write("Identified Topics:\n")
         for topic in topics:
-            f.write(topic)
-            f.write("\n")
+            f.write(topic + "\n")
         f.write(f"Correct as of {pd.Timestamp.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
 
-    # Merge into DB
+    # --- Merge into DB ---
     topic_doc = {'_id': 'latest_topics', 'topics': topics}
     client['final']['topics'].update_one({'_id': 'latest_topics'}, {'$set': topic_doc}, upsert=True)
+
+    # --- Silhouette Score ---
+    # Convert LDA topic distributions to hard cluster labels (argmax = dominant topic)
+    topic_distributions = lda.transform(dtm)       # shape: (n_docs, n_topics)
+    cluster_labels = np.argmax(topic_distributions, axis=1)  # each doc assigned to dominant topic
+
+    # Need dense matrix for silhouette
+    X_dense = dtm.toarray()
+
+    avg_score = silhouette_score(X_dense, cluster_labels)
+    sample_scores = silhouette_samples(X_dense, cluster_labels)
+
+    # Save score to txt
+    with open('/opt/airflow/dags/topics.txt', 'a') as f:
+        f.write(f"\nSilhouette Score (avg): {avg_score:.4f}\n")
+        f.write("Interpretation: >0.5 strong, 0.25-0.5 reasonable, <0.25 weak clusters\n")
+
+    # --- Chart 1: Per-sample silhouette plot ---
+    fig, ax = plt.subplots(figsize=(8, 5))
+    y_lower = 10
+    colors = cm.tab10(np.linspace(0, 1, lda.n_components))
+
+    for i in range(lda.n_components):
+        cluster_scores = np.sort(sample_scores[cluster_labels == i])
+        size = cluster_scores.shape[0]
+        if size == 0:
+            continue
+        y_upper = y_lower + size
+        ax.fill_betweenx(np.arange(y_lower, y_upper), 0, cluster_scores,
+                         facecolor=colors[i], alpha=0.75, label=f'Topic {i+1} (n={size})')
+        y_lower = y_upper + 8
+
+    ax.axvline(avg_score, color='red', linestyle='--', linewidth=1.2,
+               label=f'Avg score: {avg_score:.3f}')
+    ax.set_xlabel('Silhouette coefficient')
+    ax.set_title('Per-document silhouette score by dominant topic')
+    ax.set_yticks([])
+    ax.legend(loc='lower right', fontsize=8)
+    plt.tight_layout()
+    plt.savefig('/opt/airflow/dags/save_img/silhouette_plot.png', dpi=150)
+    plt.close()
+
+    # --- Chart 2: Topic-Word Heatmap ---
+    feature_names = vectorizer.get_feature_names_out()
+    top_n = 10
+    top_indices = np.argsort(lda.components_, axis=1)[:, -top_n:][:, ::-1]
+    shared_indices = top_indices[0]
+    top_labels = [feature_names[i] for i in shared_indices]
+
+    weight_matrix = np.array([
+        lda.components_[t][shared_indices] for t in range(lda.n_components)
+    ])
+    weight_norm = weight_matrix / weight_matrix.max(axis=1, keepdims=True)
+
+    fig2, ax2 = plt.subplots(figsize=(10, 5))
+    im = ax2.imshow(weight_norm, aspect='auto', cmap='Blues')
+    ax2.set_xticks(range(top_n))
+    ax2.set_xticklabels(top_labels, rotation=35, ha='right', fontsize=9)
+    ax2.set_yticks(range(lda.n_components))
+    ax2.set_yticklabels([f'Topic {i+1}' for i in range(lda.n_components)], fontsize=9)
+    plt.colorbar(im, ax=ax2, label='Normalised weight')
+    ax2.set_title('Topic-word weight heatmap (top 10 words of topic 1)')
+    plt.tight_layout()
+    plt.savefig('/opt/airflow/dags/save_img/topic_heatmap.png', dpi=150)
+    plt.close()
