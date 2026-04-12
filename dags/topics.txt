@@ -1,14 +1,14 @@
 Identified Topics:
-Topic 1: sap, solution, project, customer, year, ability, design, system, application, ensure
-Topic 2: js, engineering, familiar, good, communication, feature, proficiency, test, computer, systems
-Topic 3: system, design, performance, engineering, application, ai, ensure, code, architecture, service
-Topic 4: test, testing, ai, research, product, computer, industry, data, technology, functional
-Topic 5: ai, system, engineering, you, build, engineer, technology, product, code, design
-Topic 6: product, design, need, engineer, year, google, data, opportunity, information, user
-Topic 7: data, system, design, engineering, ai, product, project, test, requirement, engineer
-Topic 8: application, net, design, develop, system, testing, code, maintain, ensure, azure
-Topic 9: technology, project, data, product, development, client, solution, singapore, opportunity, government
-Correct as of 2026-04-08 02:14:11
+Topic 1: system, environment, job, working, knowledge, you, design, opportunity, engineer, technology
+Topic 2: technology, govtech, engineer, singapore, data, smart, government, public, development, test
+Topic 3: ai, engineering, system, design, data, code, performance, engineer, build, product
+Topic 4: design, product, engineering, technology, data, management, across, global, customer, opportunity
+Topic 5: application, system, project, testing, design, technology, management, ensure, requirement, requirements
+Topic 6: technology, google, design, information, solution, product, data, mobile, scale, engineer
+Topic 7: management, research, project, leidos, develop, system, vision, data, planning, processing
+Topic 8: engineering, system, security, js, java, data, design, secure, code, apis
+Topic 9: application, design, sap, project, year, system, solution, ability, testing, ensure
+Correct as of 2026-04-12 06:06:09
 
-Silhouette Score (avg): -0.0591
+Silhouette Score (avg): -0.0102
 Interpretation: >0.5 strong, 0.25-0.5 reasonable, <0.25 weak clusters
