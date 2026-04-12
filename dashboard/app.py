@@ -211,19 +211,6 @@ with st.sidebar:
     st.markdown("Analytics view for your Airflow aggregation outputs.")
     st.divider()
 
-    st.markdown("### Data sources")
-    st.markdown("""
-- `job_counts.csv`
-- `top_skills.csv`
-- `job_description_word_freq.csv`
-- `job_description_wordcloud.png`
-- `CoefficeintReport.csv`
-- `Summary.txt`
-- `topics.txt`
-- images in `save_img/`
-""")
-
-    st.divider()
     st.markdown("### Quick filters")
 
     if not top_skills.empty and "date" in top_skills.columns:
