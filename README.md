@@ -63,4 +63,4 @@ The dashboard home page provides an overview of all key analytics features in a 
 
 
 ![Topic model](./assets/Topic_model.png)
-*Figure 5: Topic modelling aggregation*
+*Figure 6: Topic modelling aggregation*
