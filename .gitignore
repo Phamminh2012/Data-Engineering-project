@@ -4,9 +4,7 @@
 # Telegram session
 session.session
 
-# Jupyter checkpoints
-.ipynb_checkpoints/
-logs/
+
 # Python cache
 __pycache__/
 *.pyc
