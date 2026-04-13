@@ -19,6 +19,11 @@ Very simple: Just build the docker file. Just:
 ```
 docker compose up --build
 ```
+
+To run the dash board:
+```
+docker compose up dashboard
+```
 ## Data source 
 In this project due to limitation quota in RapidAPI, we schedule to run this pipeline for every 24hrs.
 
@@ -41,11 +46,11 @@ There are 5 features we include in dashboard:
 
 ![Dashboard Preview](./assets/home_page.png)
 
-*Figure 1: Home page of the dashboard *
+*Figure 1: Home page of the dashboard*
 The dashboard home page provides an overview of all key analytics features in a single interface. From here, users can quickly navigate through the five main components: Job Count, Skill Count, Word Cloud, Regression, and Topic Modelling. Each module is designed to offer a different perspective on the dataset, ranging from high-level trends to deeper analytical insights.
 
 ![Job count Preview](./assets/home_page.png)
-*Figure 2: Trend in number of job *
+*Figure 2: Trend in number of job*
 
 ![Top skill Preview](./assets/Top_skill.png)
 *Figure 3: Top skills*
