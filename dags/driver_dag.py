@@ -4,7 +4,7 @@ from scraping import *
 from upload_data import upload, upload_csv
 from transform import *
 from skills_addition import do_skill_tagging_jsearch
-from aggregations import do_job_count, do_skills_count, do_regression, do_job_description_wordcloud
+from aggregations import do_job_count, do_skills_count, do_regression, do_job_description_wordcloud, do_topic_modeling
 
 @dag("job_scraper", schedule=None, start_date=datetime.datetime(2026, 1, 1), catchup=False)
 def the_driver():
@@ -65,6 +65,10 @@ def the_driver():
     def wordcloud_agg(dummy):
         return do_job_description_wordcloud(dummy)
 
+    @task(task_id="Topic-Modeling")
+    def topic_modeling_agg(dummy):
+        return do_topic_modeling(dummy)
+
     m = mcf()
     j = jSearch()
     raw_db_name = "raw_api_result"
@@ -89,7 +93,14 @@ def the_driver():
 
     agg_j = job_count_agg(t_m)
     agg_s = skills_count_agg(t_m)
-    agg_r = regression_agg(m_u)
+    agg_r = regression_agg(t_m)
     agg_w = wordcloud_agg(t_m)
+    agg_t = topic_modeling_agg(t_m)
+
+    # Ensure aggregations run after both transformations
+    agg_j.set_upstream(t_j)
+    agg_s.set_upstream(t_j)
+    agg_w.set_upstream(t_j)
+    agg_t.set_upstream(t_j)
 
 the_driver()
