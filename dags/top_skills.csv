@@ -1,296 +1,411 @@
 date,skill,count
-2026-04-11,statistics,1
+2026-04-17,sql,2
+2026-04-17,java,2
+2026-04-17,software development,2
+2026-04-17,computer hardware,1
+2026-04-17,soap,1
+2026-04-16,java,4
+2026-04-16,api,3
+2026-04-16,javascript,3
+2026-04-16,software development,2
+2026-04-16,software engineering,2
+2026-04-15,continuous improvement,4
+2026-04-15,deployment,4
+2026-04-15,kanban,3
+2026-04-15,root cause analysis,3
+2026-04-15,production support,3
+2026-04-14,python,3
+2026-04-14,information technology,3
+2026-04-14,management skills,2
+2026-04-14,computer science,2
+2026-04-14,linux,2
+2026-04-13,computer science,2
+2026-04-13,mysql,2
+2026-04-13,design,2
+2026-04-13,javascript,2
+2026-04-13,software development,2
 2026-04-11,cuda,1
-2026-04-11,parallel algorithms,1
-2026-04-11,logical reasoning,1
 2026-04-11,c language,1
+2026-04-11,tensorflow,1
+2026-04-11,pytorch,1
+2026-04-11,ddp,1
+2026-04-10,software development,2
+2026-04-10,design,2
 2026-04-10,computer science,2
-2026-04-10,communication skills,1
-2026-04-10,gcp,1
-2026-04-10,digital transformation,1
-2026-04-10,test automation framework,1
+2026-04-10,responsive design,2
+2026-04-10,progress monitoring,1
 2026-04-09,java,5
+2026-04-09,architecture frameworks,5
 2026-04-09,liaising with cross functional teams,5
 2026-04-09,microservices,5
-2026-04-09,architecture frameworks,5
 2026-04-09,computer science,4
 2026-04-08,javascript,4
 2026-04-08,software development,4
-2026-04-08,react.js,3
 2026-04-08,java,3
-2026-04-08,professional experience,2
-2026-04-07,java,2
-2026-04-07,troubleshooting,2
-2026-04-07,liaising with cross functional teams,2
-2026-04-07,sql database design,1
-2026-04-07,source code reviews,1
-2026-04-06,sdlc,4
-2026-04-06,api,4
-2026-04-06,project delivery,2
-2026-04-06,adaptability,2
-2026-04-06,agile methodologies,2
-2026-04-04,incident management,1
-2026-04-04,http,1
-2026-04-04,application support,1
-2026-04-04,linux,1
+2026-04-08,react.js,3
+2026-04-08,angular,2
+2026-04-07,java,4
+2026-04-07,azure,3
+2026-04-07,sql,3
+2026-04-07,agile,3
+2026-04-07,databases,3
+2026-04-06,ecc,5
+2026-04-06,api,5
+2026-04-06,abap development,5
+2026-04-06,idoc,5
+2026-04-06,xml,5
 2026-04-04,shell scripting,1
+2026-04-04,root cause analysis,1
+2026-04-04,http,1
+2026-04-04,programming languages,1
+2026-04-04,troubleshooting,1
 2026-04-02,computer science,4
 2026-04-02,information technology,3
-2026-04-02,python,2
+2026-04-02,liaising with cross functional teams,2
+2026-04-02,software development,2
 2026-04-02,agile,2
-2026-04-02,aws,2
-2026-04-01,git,1
-2026-04-01,agile methodology,1
-2026-04-01,it knowledge,1
-2026-04-01,financial services,1
-2026-04-01,weblogic,1
+2026-04-01,design,2
+2026-04-01,system maintenance,2
+2026-04-01,software development,2
+2026-04-01,c language,2
+2026-04-01,requirements development,1
 2026-03-31,sdlc,2
 2026-03-31,computer science,2
+2026-03-31,computer vision,1
 2026-03-31,technical support,1
-2026-03-31,internationalization,1
-2026-03-31,software version control,1
+2026-03-31,talend,1
 2026-03-30,software development,4
-2026-03-30,c#,3
 2026-03-30,javascript,3
+2026-03-30,c#,3
 2026-03-30,sql,3
 2026-03-30,software engineering,2
-2026-03-29,html,1
 2026-03-29,business requirements,1
-2026-03-29,content management,1
-2026-03-29,laravel,1
+2026-03-29,wordpress,1
 2026-03-29,web applications,1
-2026-03-28,team player,1
-2026-03-28,microservices,1
-2026-03-28,interpersonal skills,1
-2026-03-28,budgets,1
-2026-03-28,project management,1
-2026-03-27,computer science,2
-2026-03-27,c language,2
-2026-03-27,software development,2
-2026-03-27,liaising with cross functional teams,1
-2026-03-27,programming,1
+2026-03-29,mentorship,1
+2026-03-29,ict,1
+2026-03-28,drug development,1
+2026-03-28,engineering safety and security standards,1
+2026-03-28,resource allocation,1
+2026-03-28,project cost,1
+2026-03-28,critical thinking,1
+2026-03-27,software development,5
+2026-03-27,computer science,3
+2026-03-27,databases,3
+2026-03-27,c language,3
+2026-03-27,application development,3
 2026-03-26,java,3
-2026-03-26,timely delivery,2
-2026-03-26,api,2
 2026-03-26,sql,2
-2026-03-26,docker,2
+2026-03-26,azure,2
+2026-03-26,information technology,2
+2026-03-26,timely delivery,2
 2026-03-25,computer science,3
-2026-03-25,pytorch,2
-2026-03-25,tensorflow,2
 2026-03-25,software development,2
-2026-03-25,computer vision,1
+2026-03-25,tensorflow,2
+2026-03-25,pytorch,2
+2026-03-25,open source,1
 2026-03-24,software development,8
-2026-03-24,sql,4
-2026-03-24,information technology,4
 2026-03-24,java,4
-2026-03-24,agile,3
+2026-03-24,information technology,4
+2026-03-24,computer science,4
+2026-03-24,sql,4
 2026-03-23,information technology,6
 2026-03-23,software development,5
 2026-03-23,technical documentation,4
 2026-03-23,application development,3
 2026-03-23,user experience,3
+2026-03-22,manage technology planning,1
 2026-03-22,computing,1
-2026-03-22,test-driven development,1
-2026-03-22,data,1
 2026-03-22,continuous integration,1
-2026-03-22,trunking,1
+2026-03-22,gitflow,1
+2026-03-22,deployment,1
+2026-03-21,software engineering,1
+2026-03-21,manufacturing execution systems,1
+2026-03-21,engineering leadership,1
+2026-03-21,real-time control,1
+2026-03-21,product improvement,1
+2026-03-20,computer science,4
+2026-03-20,.net,2
 2026-03-20,agile software development,2
-2026-03-20,computer science,2
-2026-03-20,proposal writing,1
-2026-03-20,public speaking,1
-2026-03-20,css,1
-2026-03-19,computer science,4
+2026-03-20,information systems,2
+2026-03-20,java,2
+2026-03-19,computer science,5
 2026-03-19,aws,3
+2026-03-19,microservices,2
 2026-03-19,azure,2
-2026-03-19,css,2
-2026-03-19,software development,2
-2026-03-18,software development,5
-2026-03-18,java,4
-2026-03-18,mongodb,4
-2026-03-18,authorization,3
-2026-03-18,python,3
-2026-03-17,deployment,2
-2026-03-17,git,2
-2026-03-17,python,2
-2026-03-17,computer science,2
-2026-03-17,software development,2
-2026-03-16,software development,2
-2026-03-16,computer science,2
-2026-03-16,api development,1
-2026-03-16,computer engineering,1
-2026-03-16,c# .net 4.0,1
-2026-03-15,java enterprise edition,1
-2026-03-15,log analysis,1
-2026-03-15,identity management system,1
-2026-03-15,enterprise programme,1
-2026-03-15,software deployment,1
-2026-03-14,computer science,2
-2026-03-14,python,1
-2026-03-14,software engineering,1
-2026-03-14,continuous integration and continuous deployment,1
-2026-03-14,degree in psychology,1
-2026-03-13,security,2
+2026-03-19,cross functional team building,2
+2026-03-18,software development,11
+2026-03-18,python,7
+2026-03-18,java,7
+2026-03-18,javascript,5
+2026-03-18,agile,4
+2026-03-17,python,6
+2026-03-17,computer science,5
+2026-03-17,software development,4
+2026-03-17,kubernetes,3
+2026-03-17,deployment,3
+2026-03-16,software development,9
+2026-03-16,computer science,4
+2026-03-16,javascript,4
+2026-03-16,python,4
+2026-03-16,docker,3
+2026-03-15,git,2
+2026-03-15,databases,2
+2026-03-15,development,2
+2026-03-15,communication,2
+2026-03-15,automation,2
+2026-03-14,liaising with cross functional teams,2
+2026-03-14,design,2
+2026-03-14,improve system performance,2
+2026-03-14,api,2
+2026-03-14,software development,2
+2026-03-13,software development,3
 2026-03-13,design,2
-2026-03-13,software development,2
-2026-03-13,system design,1
-2026-03-13,oauth,1
-2026-03-12,software development,5
+2026-03-13,information technology,2
+2026-03-13,software engineering,2
+2026-03-13,docker container,2
+2026-03-12,software development,8
+2026-03-12,sql,4
 2026-03-12,javascript,4
-2026-03-12,web services,3
-2026-03-12,iis,3
-2026-03-12,.net,3
-2026-03-11,linux,1
-2026-03-11,gui,1
-2026-03-11,java,1
-2026-03-11,user experience,1
-2026-03-11,develop the gui,1
-2026-03-10,java,3
-2026-03-10,sql,3
-2026-03-10,software development,3
-2026-03-10,postgresql,2
-2026-03-10,analytical and problem-solving skills,2
-2026-03-09,software development,4
-2026-03-09,c#,2
-2026-03-09,teamwork,2
-2026-03-09,git,2
-2026-03-09,api,2
-2026-03-08,scalability,1
-2026-03-08,distributed systems,1
-2026-03-08,mathematics,1
-2026-03-08,electronics,1
+2026-03-12,ajax,3
+2026-03-12,usability,3
+2026-03-11,debugging,4
+2026-03-11,java,3
+2026-03-11,python,3
+2026-03-11,security,3
+2026-03-11,software engineering,2
+2026-03-10,computer science,5
+2026-03-10,software development,4
+2026-03-10,team collaboration,4
+2026-03-10,databases,4
+2026-03-10,system design,3
+2026-03-09,software development,6
+2026-03-09,sql,3
+2026-03-09,c#,3
+2026-03-09,teamwork,3
+2026-03-09,software engineering,3
 2026-03-08,c++,1
-2026-03-06,node.js,4
-2026-03-06,react.js,4
-2026-03-06,typescript,4
-2026-03-06,restful api,4
+2026-03-08,python,1
+2026-03-08,distributed systems,1
+2026-03-08,upstream,1
+2026-03-08,mathematics,1
+2026-03-06,software development,5
+2026-03-06,python,5
+2026-03-06,javascript,5
+2026-03-06,software engineering,5
 2026-03-06,full stack development,4
 2026-03-05,software development,3
-2026-03-05,databases,2
 2026-03-05,sql,2
 2026-03-05,agile,2
 2026-03-05,postgresql,2
-2026-03-04,software development,2
-2026-03-04,restful api,1
-2026-03-04,mentorship to junior staff,1
-2026-03-04,webbased software development,1
-2026-03-04,agile,1
-2026-03-03,design,3
-2026-03-03,java,2
+2026-03-05,databases,2
+2026-03-04,software development,4
+2026-03-04,computer science,2
+2026-03-04,python,2
+2026-03-04,c#,2
+2026-03-04,.net,2
+2026-03-03,design,4
+2026-03-03,software development,3
 2026-03-03,agile development,2
-2026-03-03,python,2
-2026-03-03,software development,2
-2026-03-02,test reporting,1
-2026-03-02,code review,1
-2026-03-02,test planning,1
-2026-03-02,test management,1
-2026-03-02,continuous improvement,1
-2026-02-26,agile,4
-2026-02-26,automation design,4
-2026-02-26,software development,4
-2026-02-26,software engineering,4
+2026-03-03,java,2
+2026-03-03,typescript,2
+2026-03-02,software development,3
+2026-03-02,debugging,3
+2026-03-02,user experience,2
+2026-03-02,flutter,2
+2026-03-02,testing,2
+2026-02-27,adaptable,1
+2026-02-27,product feedback,1
+2026-02-27,marketing,1
+2026-02-27,application development,1
+2026-02-27,sales process,1
+2026-02-26,software development,5
 2026-02-26,semiconductor manufacturing,4
-2026-02-24,it systems implementation,1
-2026-02-24,html,1
-2026-02-24,python,1
+2026-02-26,object oriented software,4
+2026-02-26,c#,4
+2026-02-26,precision engineering,4
+2026-02-25,powerhouse,1
+2026-02-25,authentication,1
+2026-02-25,project management,1
+2026-02-25,tapestry,1
+2026-02-25,engineering management,1
+2026-02-24,maintenance of data integrity,1
+2026-02-24,risk management support,1
+2026-02-24,sql,1
+2026-02-24,team facilitation,1
 2026-02-24,business systems,1
-2026-02-24,css,1
-2026-02-20,soft skills,1
-2026-02-20,quality control,1
-2026-02-20,internal communications,1
-2026-02-20,arranging,1
-2026-02-20,plc,1
-2026-02-13,public sector,1
-2026-02-13,spring boot,1
+2026-02-23,software development,3
+2026-02-23,sql,3
+2026-02-23,java,3
+2026-02-23,agile,3
+2026-02-23,javascript,2
+2026-02-20,software development,4
+2026-02-20,version control,4
+2026-02-20,c++,3
+2026-02-20,reliability,3
+2026-02-20,application development,3
+2026-02-19,software development,4
+2026-02-19,software engineering,3
+2026-02-19,python,2
+2026-02-19,c#,2
+2026-02-19,c++,2
 2026-02-13,business requirements,1
-2026-02-13,agile project management,1
-2026-02-13,application development,1
-2026-02-12,virtualisation,1
-2026-02-12,linux system administration,1
-2026-02-12,network security,1
-2026-02-12,operations management,1
+2026-02-13,software quality assurance,1
+2026-02-13,kanban,1
+2026-02-13,stakeholder engagement,1
+2026-02-13,scrum,1
+2026-02-12,devsecops,1
+2026-02-12,software development,1
+2026-02-12,docker,1
 2026-02-12,python,1
-2026-01-29,pipelines,1
-2026-01-29,typescript,1
-2026-01-29,css,1
-2026-01-29,azure,1
-2026-01-29,software design,1
+2026-02-12,system administration,1
+2026-02-11,debugging,1
+2026-02-11,mysql,1
+2026-02-11,sql,1
+2026-02-11,software development,1
+2026-02-11,unit testing,1
+2026-02-02,idoc,1
+2026-02-02,odata,1
+2026-02-02,developing interfaces,1
+2026-02-02,sap pi/xi,1
+2026-02-02,sdlc,1
+2026-01-29,software development,2
+2026-01-29,linux,1
+2026-01-29,software engineering,1
+2026-01-29,sensors,1
+2026-01-29,c++,1
 2026-01-28,information technology,3
-2026-01-28,data center,2
-2026-01-28,scripting,2
+2026-01-28,vpn,2
 2026-01-28,ospf,2
-2026-01-28,ccna,2
-2026-01-24,agile,2
-2026-01-24,c++,2
-2026-01-24,.net,2
+2026-01-28,troubleshooting,2
+2026-01-28,network security,2
+2026-01-24,linux,2
 2026-01-24,databases,2
-2026-01-24,sql,2
-2026-01-20,reliability,1
-2026-01-20,azure,1
+2026-01-24,software development,2
+2026-01-24,java,2
+2026-01-24,javascript,2
+2026-01-23,software engineering,1
+2026-01-23,api,1
+2026-01-23,python,1
+2026-01-23,git,1
+2026-01-23,system design,1
+2026-01-22,design patterns,1
+2026-01-22,unit testing,1
+2026-01-22,scalability,1
+2026-01-22,software design,1
+2026-01-22,web applications,1
+2026-01-21,combat,1
+2026-01-21,electrical engineering,1
+2026-01-21,sound design,1
+2026-01-21,dsp,1
+2026-01-21,telecommunications,1
+2026-01-20,python,1
+2026-01-20,clickhouse,1
 2026-01-20,api,1
-2026-01-20,react.js,1
-2026-01-20,scalability,1
-2026-01-16,technical project management,1
-2026-01-16,project management,1
-2026-01-16,cloud,1
-2026-01-16,distributed systems,1
-2026-01-16,project planning,1
-2026-01-14,architectural,1
-2026-01-14,unit testing,1
-2026-01-14,java,1
-2026-01-14,software debugging,1
+2026-01-20,microservices,1
+2026-01-20,kubernetes,1
+2026-01-16,software development,2
+2026-01-16,software engineering,2
+2026-01-16,agile,2
+2026-01-16,risk management,1
+2026-01-16,aws,1
+2026-01-14,agile development,1
+2026-01-14,software design,1
 2026-01-14,sql,1
+2026-01-14,software debugging,1
+2026-01-14,agile,1
+2026-01-13,software development,1
+2026-01-13,css,1
+2026-01-13,web developer,1
+2026-01-13,laravel,1
+2026-01-13,trucking,1
+2026-01-09,python,1
+2026-01-09,artificial intelligence,1
+2026-01-09,networking,1
+2026-01-09,ui design,1
+2026-01-09,ui,1
+2026-01-06,requirements gathering,1
+2026-01-06,project planning,1
+2026-01-06,scheduling,1
 2026-01-06,attention to detail,1
-2026-01-06,agile,1
-2026-01-06,quality assurance,1
 2026-01-06,scrum,1
-2026-01-06,project management,1
-2026-01-02,reports,2
-2026-01-02,sap abap bapi,2
-2026-01-02,webdynpro,2
-2026-01-02,smartforms,2
-2026-01-02,abap,2
-2025-12-30,product management,1
-2025-12-30,software development,1
+2026-01-02,sap erp,4
+2026-01-02,adobe forms,4
+2026-01-02,odata,4
+2026-01-02,ecc,4
+2026-01-02,reports,4
+2025-12-30,sql,1
 2025-12-30,able to work independently,1
-2025-12-30,management skills,1
-2025-12-30,writing,1
-2025-12-26,python,1
-2025-12-26,troubleshooting,1
-2025-12-26,version control,1
+2025-12-30,user acceptance testing,1
+2025-12-30,uat,1
+2025-12-30,product management,1
 2025-12-26,reliability,1
-2025-12-26,software engineering,1
-2025-12-22,customer success,1
-2025-12-22,version control,1
-2025-12-22,php,1
-2025-12-22,agile,1
+2025-12-26,hardware,1
+2025-12-26,version control,1
+2025-12-26,python,1
+2025-12-26,software development,1
+2025-12-22,javascript,1
 2025-12-22,databases,1
-2025-12-18,docusign,1
-2025-12-18,leadership,1
-2025-12-18,forecasting,1
+2025-12-22,adaptability,1
+2025-12-22,java,1
+2025-12-22,capital markets,1
 2025-12-18,embedded software,1
-2025-12-18,sales management,1
-2025-12-11,salesforce training,1
+2025-12-18,crm,1
+2025-12-18,selling,1
+2025-12-18,negotiation,1
+2025-12-18,docusign,1
+2025-12-16,grpc,1
+2025-12-16,sql,1
+2025-12-16,kubernetes,1
+2025-12-16,azure,1
+2025-12-16,aspnet,1
 2025-12-11,git,1
-2025-12-11,implemented salesforce,1
-2025-12-11,salesforce administrator,1
-2025-12-11,interpersonal skills,1
-2025-12-10,machine learning,1
-2025-12-10,java,1
-2025-12-10,applied mathematics,1
-2025-12-10,research and development,1
-2025-12-10,hardware,1
-2025-12-02,stakeholder management,1
-2025-12-02,budgets,1
-2025-12-02,facilitation,1
+2025-12-11,agile methodologies,1
+2025-12-11,software development,1
+2025-12-11,html,1
+2025-12-11,software engineering,1
+2025-12-10,decision making,1
+2025-12-10,avid,1
+2025-12-10,python,1
+2025-12-10,artificial intelligence,1
+2025-12-10,compression,1
+2025-12-02,jira,1
 2025-12-02,ict,1
-2025-12-02,budgeting,1
-2025-11-25,azure,1
+2025-12-02,prince2,1
+2025-12-02,sdlc,1
+2025-12-02,stakeholder management,1
 2025-11-25,software design,1
-2025-11-25,application development,1
+2025-11-25,azure,1
+2025-11-25,sql,1
 2025-11-25,sdlc,1
-2025-11-25,api,1
-2025-10-21,technical architecture,1
-2025-10-21,angularjs,1
-2025-10-21,architect,1
-2025-10-21,system architecture,1
-2025-10-21,javascript,1
+2025-11-25,angular,1
+2025-11-24,test cases,1
+2025-11-24,writing,1
+2025-11-24,scrum,1
+2025-11-24,total quality management,1
+2025-11-24,angular,1
+2025-11-20,debugging,2
+2025-11-20,linux,2
+2025-11-20,soc,2
+2025-11-20,traffic management,1
+2025-11-20,rtos,1
+2025-10-31,sap hana,2
+2025-10-31,sap pi/xi,2
+2025-10-31,sap fiori,2
+2025-10-31,ecc,2
+2025-10-31,sdlc,2
+2025-10-27,leadership,1
+2025-10-27,json,1
+2025-10-27,career development,1
+2025-10-27,rest,1
+2025-10-27,jira,1
+2025-10-21,design patterns,1
+2025-10-21,saas,1
+2025-10-21,architecture design,1
+2025-10-21,software engineering,1
+2025-10-21,jquery,1
+2025-09-12,software development,1
+2025-09-12,attention to detail,1
+2025-09-12,java,1
+2025-09-12,pmp,1
+2025-09-12,scrum,1

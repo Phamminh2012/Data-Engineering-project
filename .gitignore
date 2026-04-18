@@ -13,3 +13,14 @@ __pycache__/
 session.session
 
 data/
+dags/CoefficeintReport.csv
+dags/job_counts.csv
+dags/job_description_word_freq.csv
+dags/job_description_wordcloud.png
+dags/Summary.txt
+dags/top_skills.csv
+dags/topics.txt
+dags/save_img/coef_plot.png
+dags/save_img/residuals_plot.png
+dags/save_img/silhouette_plot.png
+dags/save_img/topic_heatmap.png
