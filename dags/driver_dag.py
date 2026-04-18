@@ -6,14 +6,14 @@ from transform import *
 from skills_addition import do_skill_tagging_jsearch
 from aggregations import do_job_count, do_skills_count, do_regression, do_job_description_wordcloud, do_topic_modeling
 
-@dag("job_scraper", schedule=None, start_date=datetime.datetime(2026, 1, 1), catchup=False)
+@dag("job_scraper", schedule='@daily', start_date=datetime.datetime(2026, 1, 1), catchup=False)
 def the_driver():
 
-    @task(task_id="MCF-Scrape")
+    @task(task_id="MCF-Scrape",retries=3, retry_delay=datetime.timedelta(minutes=5))
     def mcf():
         return mcf_scrape("software development", limit=100, n_pages = 5) # First 100 jobs
     
-    @task(task_id="JSearch-Scrape")
+    @task(task_id="JSearch-Scrape",retries=3, retry_delay=datetime.timedelta(minutes=5))
     def jSearch():
         return fetch_jsearch_jobs(query = "software development job in singapore", num_pages = 5)
 
