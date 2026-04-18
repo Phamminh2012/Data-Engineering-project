@@ -32,7 +32,7 @@ def do_skill_tagging_jsearch(collection_name):
     
     # Connect to MongoDB
     client = MongoClient('mongodb://host.docker.internal:27017')
-    db = client['raw']
+    db = client['raw_api_result']
     collection = db[collection_name]
     
     # Find documents that don't have skills yet

@@ -1,14 +1,14 @@
 Identified Topics:
-Topic 1: application, technology, data, security, design, system, knowledge, engineering, management, engineer
-Topic 2: ai, system, design, data, product, engineering, across, high, engineer, performance
-Topic 3: global, you, company, sap, opportunity, ai, career, help, build, aws
-Topic 4: sap, customer, year, ability, abap, solution, design, project, following, requirement
-Topic 5: js, design, code, application, engineering, cloud, apis, develop, maintain, ci
-Topic 6: ai, research, design, game, position, university, creative, media, games, technology
-Topic 7: product, opportunity, technology, data, life, project, grab, employee, activate, requirement
-Topic 8: application, e2i, employment, job, please, solutions, no, ea, design, data
-Topic 9: system, project, testing, application, design, management, ensure, knowledge, skills, quality
-Correct as of 2026-04-13 14:00:05
+Topic 1: ai, data, product, engineering, technology, system, design, across, build, engineer
+Topic 2: grab, life, opportunity, status, equal, gender, com, age, data, employment
+Topic 3: research, design, game, university, position, creative, media, games, adm, school
+Topic 4: application, design, cloud, data, system, develop, apis, backend, security, code
+Topic 5: project, system, application, management, ensure, knowledge, design, testing, delivery, quality
+Topic 6: system, application, design, js, job, engineering, good, code, solutions, performance
+Topic 7: project, design, system, technology, solution, product, management, delivery, testing, end
+Topic 8: sap, year, ability, customer, solution, following, abap, design, application, project
+Topic 9: technology, cloud, govtech, system, security, engineering, smart, employee, data, digital
+Correct as of 2026-04-18 13:32:59
 
-Silhouette Score (avg): -0.0411
+Silhouette Score (avg): -0.0256
 Interpretation: >0.5 strong, 0.25-0.5 reasonable, <0.25 weak clusters
