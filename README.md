@@ -46,21 +46,36 @@ There are 5 features we include in dashboard:
 
 ![Dashboard Preview](./assets/home_page.png)
 
-*Figure 1: Home page of the dashboard*
+<p align="center"><em>Figure 1: Home page of the dashboard</em></p>
+
 The dashboard home page provides an overview of all key analytics features in a single interface. From here, users can quickly navigate through the five main components: Job Count, Skill Count, Word Cloud, Regression, and Topic Modelling. Each module is designed to offer a different perspective on the dataset, ranging from high-level trends to deeper analytical insights.
 
+---
+
 ![Job count Preview](./assets/home_page.png)
-<center>*Figure 2: Trend in number of job*</center>
+
+<p align="center"><em>Figure 2: Trend in number of job</em></p>
+
+---
 
 ![Top skill Preview](./assets/Top_skill.png)
-<center>*Figure 3: Top skills*</center>
 
-![Top skill Preview](./assets/Word_cloud.png)
-<center>*Figure 4: Word cloud aggregation*</center>
+<p align="center"><em>Figure 3: Top skills</em></p>
 
-![Regression  Preview](./assets/Regression.png)
-<center>*Figure 5: Regression aggregation*</center>
+---
 
+![Word cloud Preview](./assets/Word_cloud.png)
+
+<p align="center"><em>Figure 4: Word cloud aggregation</em></p>
+
+---
+
+![Regression Preview](./assets/Regression.png)
+
+<p align="center"><em>Figure 5: Regression aggregation</em></p>
+
+---
 
 ![Topic model](./assets/Topic_model.png)
-<center>*Figure 6: Topic modelling aggregation*</center>
+
+<p align="center"><em>Figure 6: Topic modelling aggregation</em></p>
